@@ -1,0 +1,1596 @@
+{
+  "metadata": {
+    "engine": "CSS Insight Engine",
+    "version": "1.0.0",
+    "file_path": "C:\\SkillFirstLabs-AIML-Internship-Assignment\\milestone-1-css-insight-engine\\samples\\sample_messy.css",
+    "stats": {
+      "total_rules": 9,
+      "total_declarations": 44,
+      "unique_properties": 19,
+      "total_colors": 6,
+      "total_spacings": 6,
+      "total_custom_properties": 0,
+      "token_candidate_count": 5,
+      "quality_findings_count": 14,
+      "important_declarations_count": 6
+    }
+  },
+  "stylesheet": {
+    "file_path": "C:\\SkillFirstLabs-AIML-Internship-Assignment\\milestone-1-css-insight-engine\\samples\\sample_messy.css",
+    "total_style_rules": 9,
+    "total_declarations": 44,
+    "unique_property_count": 19,
+    "comments_count": 11,
+    "source_bytes": 2194,
+    "source_lines": 86,
+    "property_frequency": {
+      "background-color": 7,
+      "color": 7,
+      "padding": 7,
+      "border-radius": 4,
+      "font-size": 3,
+      "display": 2,
+      "border": 2,
+      "border-bottom": 1,
+      "margin-right": 1,
+      "text-decoration": 1,
+      "width": 1,
+      "border-right": 1,
+      "margin-bottom": 1,
+      "font-weight": 1,
+      "margin-left": 1,
+      "cursor": 1,
+      "border-left": 1,
+      "box-shadow": 1,
+      "margin-top": 1
+    },
+    "parse_errors": [],
+    "at_rules": [],
+    "rules": [
+      {
+        "rule_index": 1,
+        "selector_text": ".header-bar",
+        "selectors": [
+          ".header-bar"
+        ],
+        "at_rule_context": [],
+        "location": {
+          "line": 8,
+          "column": 1
+        },
+        "declarations": [
+          {
+            "name": "background-color",
+            "value": "#1e3a8a",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 9,
+              "column": 3
+            },
+            "raw_value": "#1e3a8a"
+          },
+          {
+            "name": "color",
+            "value": "#ffffff",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 10,
+              "column": 3
+            },
+            "raw_value": "#ffffff"
+          },
+          {
+            "name": "padding",
+            "value": "13px 24px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 11,
+              "column": 3
+            },
+            "raw_value": "13px 24px"
+          },
+          {
+            "name": "border-bottom",
+            "value": "2px solid #ef4444",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 12,
+              "column": 3
+            },
+            "raw_value": "2px solid #ef4444"
+          }
+        ]
+      },
+      {
+        "rule_index": 2,
+        "selector_text": ".header-bar .nav-item",
+        "selectors": [
+          ".header-bar .nav-item"
+        ],
+        "at_rule_context": [],
+        "location": {
+          "line": 16,
+          "column": 1
+        },
+        "declarations": [
+          {
+            "name": "color",
+            "value": "#ffffff",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 17,
+              "column": 3
+            },
+            "raw_value": "#ffffff"
+          },
+          {
+            "name": "font-size",
+            "value": "14px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 18,
+              "column": 3
+            },
+            "raw_value": "14px"
+          },
+          {
+            "name": "margin-right",
+            "value": "13px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 19,
+              "column": 3
+            },
+            "raw_value": "13px"
+          },
+          {
+            "name": "text-decoration",
+            "value": "none",
+            "important": true,
+            "is_custom_property": false,
+            "location": {
+              "line": 20,
+              "column": 3
+            },
+            "raw_value": "none"
+          }
+        ]
+      },
+      {
+        "rule_index": 3,
+        "selector_text": ".dashboard-sidebar",
+        "selectors": [
+          ".dashboard-sidebar"
+        ],
+        "at_rule_context": [],
+        "location": {
+          "line": 24,
+          "column": 1
+        },
+        "declarations": [
+          {
+            "name": "width",
+            "value": "260px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 25,
+              "column": 3
+            },
+            "raw_value": "260px"
+          },
+          {
+            "name": "background-color",
+            "value": "#1e3a8a",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 26,
+              "column": 3
+            },
+            "raw_value": "#1e3a8a"
+          },
+          {
+            "name": "display",
+            "value": "block",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 27,
+              "column": 3
+            },
+            "raw_value": "block"
+          },
+          {
+            "name": "padding",
+            "value": "13px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 28,
+              "column": 3
+            },
+            "raw_value": "13px"
+          },
+          {
+            "name": "display",
+            "value": "block",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 30,
+              "column": 3
+            },
+            "raw_value": "block"
+          },
+          {
+            "name": "border-right",
+            "value": "1px solid #d1d5db",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 31,
+              "column": 3
+            },
+            "raw_value": "1px solid #d1d5db"
+          }
+        ]
+      },
+      {
+        "rule_index": 4,
+        "selector_text": ".candidate-card-legacy",
+        "selectors": [
+          ".candidate-card-legacy"
+        ],
+        "at_rule_context": [],
+        "location": {
+          "line": 35,
+          "column": 1
+        },
+        "declarations": [
+          {
+            "name": "background-color",
+            "value": "#ffffff",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 36,
+              "column": 3
+            },
+            "raw_value": "#ffffff"
+          },
+          {
+            "name": "border",
+            "value": "1px solid #d1d5db",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 37,
+              "column": 3
+            },
+            "raw_value": "1px solid #d1d5db"
+          },
+          {
+            "name": "border-radius",
+            "value": "6px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 38,
+              "column": 3
+            },
+            "raw_value": "6px"
+          },
+          {
+            "name": "padding",
+            "value": "16px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 39,
+              "column": 3
+            },
+            "raw_value": "16px"
+          },
+          {
+            "name": "margin-bottom",
+            "value": "20px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 40,
+              "column": 3
+            },
+            "raw_value": "20px"
+          }
+        ]
+      },
+      {
+        "rule_index": 5,
+        "selector_text": ".candidate-card-legacy .title",
+        "selectors": [
+          ".candidate-card-legacy .title"
+        ],
+        "at_rule_context": [],
+        "location": {
+          "line": 43,
+          "column": 1
+        },
+        "declarations": [
+          {
+            "name": "color",
+            "value": "#1e3a8a",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 45,
+              "column": 3
+            },
+            "raw_value": "#1e3a8a"
+          },
+          {
+            "name": "font-size",
+            "value": "18px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 46,
+              "column": 3
+            },
+            "raw_value": "18px"
+          },
+          {
+            "name": "font-weight",
+            "value": "bold",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 47,
+              "column": 3
+            },
+            "raw_value": "bold"
+          },
+          {
+            "name": "color",
+            "value": "#374151",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 48,
+              "column": 3
+            },
+            "raw_value": "#374151"
+          }
+        ]
+      },
+      {
+        "rule_index": 6,
+        "selector_text": ".badge-urgent",
+        "selectors": [
+          ".badge-urgent"
+        ],
+        "at_rule_context": [],
+        "location": {
+          "line": 52,
+          "column": 1
+        },
+        "declarations": [
+          {
+            "name": "background-color",
+            "value": "#ef4444",
+            "important": true,
+            "is_custom_property": false,
+            "location": {
+              "line": 53,
+              "column": 3
+            },
+            "raw_value": "#ef4444"
+          },
+          {
+            "name": "color",
+            "value": "#ffffff",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 54,
+              "column": 3
+            },
+            "raw_value": "#ffffff"
+          },
+          {
+            "name": "padding",
+            "value": "4px 8px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 55,
+              "column": 3
+            },
+            "raw_value": "4px 8px"
+          },
+          {
+            "name": "border-radius",
+            "value": "4px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 56,
+              "column": 3
+            },
+            "raw_value": "4px"
+          },
+          {
+            "name": "font-size",
+            "value": "12px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 57,
+              "column": 3
+            },
+            "raw_value": "12px"
+          },
+          {
+            "name": "margin-left",
+            "value": "13px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 58,
+              "column": 3
+            },
+            "raw_value": "13px"
+          }
+        ]
+      },
+      {
+        "rule_index": 7,
+        "selector_text": ".badge-featured",
+        "selectors": [
+          ".badge-featured"
+        ],
+        "at_rule_context": [],
+        "location": {
+          "line": 61,
+          "column": 1
+        },
+        "declarations": [
+          {
+            "name": "background-color",
+            "value": "#1e3a8a",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 62,
+              "column": 3
+            },
+            "raw_value": "#1e3a8a"
+          },
+          {
+            "name": "color",
+            "value": "#ffffff",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 63,
+              "column": 3
+            },
+            "raw_value": "#ffffff"
+          },
+          {
+            "name": "padding",
+            "value": "4px 8px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 64,
+              "column": 3
+            },
+            "raw_value": "4px 8px"
+          },
+          {
+            "name": "border-radius",
+            "value": "4px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 65,
+              "column": 3
+            },
+            "raw_value": "4px"
+          }
+        ]
+      },
+      {
+        "rule_index": 8,
+        "selector_text": ".btn-submit-override",
+        "selectors": [
+          ".btn-submit-override"
+        ],
+        "at_rule_context": [],
+        "location": {
+          "line": 69,
+          "column": 1
+        },
+        "declarations": [
+          {
+            "name": "background-color",
+            "value": "#1e3a8a",
+            "important": true,
+            "is_custom_property": false,
+            "location": {
+              "line": 70,
+              "column": 3
+            },
+            "raw_value": "#1e3a8a"
+          },
+          {
+            "name": "color",
+            "value": "#ffffff",
+            "important": true,
+            "is_custom_property": false,
+            "location": {
+              "line": 71,
+              "column": 3
+            },
+            "raw_value": "#ffffff"
+          },
+          {
+            "name": "padding",
+            "value": "10px 20px",
+            "important": true,
+            "is_custom_property": false,
+            "location": {
+              "line": 72,
+              "column": 3
+            },
+            "raw_value": "10px 20px"
+          },
+          {
+            "name": "border",
+            "value": "none",
+            "important": true,
+            "is_custom_property": false,
+            "location": {
+              "line": 73,
+              "column": 3
+            },
+            "raw_value": "none"
+          },
+          {
+            "name": "border-radius",
+            "value": "4px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 74,
+              "column": 3
+            },
+            "raw_value": "4px"
+          },
+          {
+            "name": "cursor",
+            "value": "pointer",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 75,
+              "column": 3
+            },
+            "raw_value": "pointer"
+          }
+        ]
+      },
+      {
+        "rule_index": 9,
+        "selector_text": ".system-notification",
+        "selectors": [
+          ".system-notification"
+        ],
+        "at_rule_context": [],
+        "location": {
+          "line": 79,
+          "column": 1
+        },
+        "declarations": [
+          {
+            "name": "background-color",
+            "value": "#fef2f2",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 80,
+              "column": 3
+            },
+            "raw_value": "#fef2f2"
+          },
+          {
+            "name": "border-left",
+            "value": "4px solid #ef4444",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 81,
+              "column": 3
+            },
+            "raw_value": "4px solid #ef4444"
+          },
+          {
+            "name": "box-shadow",
+            "value": "0 0 10px var(--accent-glow)",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 83,
+              "column": 3
+            },
+            "raw_value": "0 0 10px var(--accent-glow)"
+          },
+          {
+            "name": "padding",
+            "value": "16px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 84,
+              "column": 3
+            },
+            "raw_value": "16px"
+          },
+          {
+            "name": "margin-top",
+            "value": "20px",
+            "important": false,
+            "is_custom_property": false,
+            "location": {
+              "line": 85,
+              "column": 3
+            },
+            "raw_value": "20px"
+          }
+        ]
+      }
+    ]
+  },
+  "design_tokens": {
+    "colors": [
+      {
+        "category": "color",
+        "raw_value": "#ffffff",
+        "normalized_value": "#ffffff",
+        "count": 6,
+        "is_custom_property": false,
+        "is_token_candidate": true,
+        "occurrences": [
+          {
+            "selector": ".header-bar",
+            "property_name": "color",
+            "location": {
+              "line": 10,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".header-bar .nav-item",
+            "property_name": "color",
+            "location": {
+              "line": 17,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".candidate-card-legacy",
+            "property_name": "background-color",
+            "location": {
+              "line": 36,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".badge-urgent",
+            "property_name": "color",
+            "location": {
+              "line": 54,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".badge-featured",
+            "property_name": "color",
+            "location": {
+              "line": 63,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".btn-submit-override",
+            "property_name": "color",
+            "location": {
+              "line": 71,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "color",
+        "raw_value": "#1e3a8a",
+        "normalized_value": "#1e3a8a",
+        "count": 5,
+        "is_custom_property": false,
+        "is_token_candidate": true,
+        "occurrences": [
+          {
+            "selector": ".header-bar",
+            "property_name": "background-color",
+            "location": {
+              "line": 9,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".dashboard-sidebar",
+            "property_name": "background-color",
+            "location": {
+              "line": 26,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".candidate-card-legacy .title",
+            "property_name": "color",
+            "location": {
+              "line": 45,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".badge-featured",
+            "property_name": "background-color",
+            "location": {
+              "line": 62,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".btn-submit-override",
+            "property_name": "background-color",
+            "location": {
+              "line": 70,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "color",
+        "raw_value": "#ef4444",
+        "normalized_value": "#ef4444",
+        "count": 3,
+        "is_custom_property": false,
+        "is_token_candidate": true,
+        "occurrences": [
+          {
+            "selector": ".header-bar",
+            "property_name": "border-bottom",
+            "location": {
+              "line": 12,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".badge-urgent",
+            "property_name": "background-color",
+            "location": {
+              "line": 53,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".system-notification",
+            "property_name": "border-left",
+            "location": {
+              "line": 81,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "color",
+        "raw_value": "#d1d5db",
+        "normalized_value": "#d1d5db",
+        "count": 2,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".dashboard-sidebar",
+            "property_name": "border-right",
+            "location": {
+              "line": 31,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".candidate-card-legacy",
+            "property_name": "border",
+            "location": {
+              "line": 37,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "color",
+        "raw_value": "#374151",
+        "normalized_value": "#374151",
+        "count": 1,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".candidate-card-legacy .title",
+            "property_name": "color",
+            "location": {
+              "line": 48,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "color",
+        "raw_value": "#fef2f2",
+        "normalized_value": "#fef2f2",
+        "count": 1,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".system-notification",
+            "property_name": "background-color",
+            "location": {
+              "line": 80,
+              "column": 3
+            }
+          }
+        ]
+      }
+    ],
+    "font_families": [],
+    "font_sizes": [
+      {
+        "category": "font_size",
+        "raw_value": "14px",
+        "normalized_value": "14px",
+        "count": 1,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".header-bar .nav-item",
+            "property_name": "font-size",
+            "location": {
+              "line": 18,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "font_size",
+        "raw_value": "18px",
+        "normalized_value": "18px",
+        "count": 1,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".candidate-card-legacy .title",
+            "property_name": "font-size",
+            "location": {
+              "line": 46,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "font_size",
+        "raw_value": "12px",
+        "normalized_value": "12px",
+        "count": 1,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".badge-urgent",
+            "property_name": "font-size",
+            "location": {
+              "line": 57,
+              "column": 3
+            }
+          }
+        ]
+      }
+    ],
+    "spacings": [
+      {
+        "category": "spacing",
+        "raw_value": "13px",
+        "normalized_value": "13px",
+        "count": 3,
+        "is_custom_property": false,
+        "is_token_candidate": true,
+        "occurrences": [
+          {
+            "selector": ".header-bar .nav-item",
+            "property_name": "margin-right",
+            "location": {
+              "line": 19,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".dashboard-sidebar",
+            "property_name": "padding",
+            "location": {
+              "line": 28,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".badge-urgent",
+            "property_name": "margin-left",
+            "location": {
+              "line": 58,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "spacing",
+        "raw_value": "16px",
+        "normalized_value": "16px",
+        "count": 2,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".candidate-card-legacy",
+            "property_name": "padding",
+            "location": {
+              "line": 39,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".system-notification",
+            "property_name": "padding",
+            "location": {
+              "line": 84,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "spacing",
+        "raw_value": "20px",
+        "normalized_value": "20px",
+        "count": 2,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".candidate-card-legacy",
+            "property_name": "margin-bottom",
+            "location": {
+              "line": 40,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".system-notification",
+            "property_name": "margin-top",
+            "location": {
+              "line": 85,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "spacing",
+        "raw_value": "4px 8px",
+        "normalized_value": "4px 8px",
+        "count": 2,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".badge-urgent",
+            "property_name": "padding",
+            "location": {
+              "line": 55,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".badge-featured",
+            "property_name": "padding",
+            "location": {
+              "line": 64,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "spacing",
+        "raw_value": "13px 24px",
+        "normalized_value": "13px 24px",
+        "count": 1,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".header-bar",
+            "property_name": "padding",
+            "location": {
+              "line": 11,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "spacing",
+        "raw_value": "10px 20px",
+        "normalized_value": "10px 20px",
+        "count": 1,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".btn-submit-override",
+            "property_name": "padding",
+            "location": {
+              "line": 72,
+              "column": 3
+            }
+          }
+        ]
+      }
+    ],
+    "border_radii": [
+      {
+        "category": "border_radius",
+        "raw_value": "4px",
+        "normalized_value": "4px",
+        "count": 3,
+        "is_custom_property": false,
+        "is_token_candidate": true,
+        "occurrences": [
+          {
+            "selector": ".badge-urgent",
+            "property_name": "border-radius",
+            "location": {
+              "line": 56,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".badge-featured",
+            "property_name": "border-radius",
+            "location": {
+              "line": 65,
+              "column": 3
+            }
+          },
+          {
+            "selector": ".btn-submit-override",
+            "property_name": "border-radius",
+            "location": {
+              "line": 74,
+              "column": 3
+            }
+          }
+        ]
+      },
+      {
+        "category": "border_radius",
+        "raw_value": "6px",
+        "normalized_value": "6px",
+        "count": 1,
+        "is_custom_property": false,
+        "is_token_candidate": false,
+        "occurrences": [
+          {
+            "selector": ".candidate-card-legacy",
+            "property_name": "border-radius",
+            "location": {
+              "line": 38,
+              "column": 3
+            }
+          }
+        ]
+      }
+    ],
+    "custom_properties": []
+  },
+  "token_candidates": [
+    {
+      "category": "color",
+      "raw_value": "#ffffff",
+      "normalized_value": "#ffffff",
+      "count": 6,
+      "is_custom_property": false,
+      "is_token_candidate": true,
+      "occurrences": [
+        {
+          "selector": ".header-bar",
+          "property_name": "color",
+          "location": {
+            "line": 10,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".header-bar .nav-item",
+          "property_name": "color",
+          "location": {
+            "line": 17,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".candidate-card-legacy",
+          "property_name": "background-color",
+          "location": {
+            "line": 36,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".badge-urgent",
+          "property_name": "color",
+          "location": {
+            "line": 54,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".badge-featured",
+          "property_name": "color",
+          "location": {
+            "line": 63,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".btn-submit-override",
+          "property_name": "color",
+          "location": {
+            "line": 71,
+            "column": 3
+          }
+        }
+      ]
+    },
+    {
+      "category": "color",
+      "raw_value": "#1e3a8a",
+      "normalized_value": "#1e3a8a",
+      "count": 5,
+      "is_custom_property": false,
+      "is_token_candidate": true,
+      "occurrences": [
+        {
+          "selector": ".header-bar",
+          "property_name": "background-color",
+          "location": {
+            "line": 9,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".dashboard-sidebar",
+          "property_name": "background-color",
+          "location": {
+            "line": 26,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".candidate-card-legacy .title",
+          "property_name": "color",
+          "location": {
+            "line": 45,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".badge-featured",
+          "property_name": "background-color",
+          "location": {
+            "line": 62,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".btn-submit-override",
+          "property_name": "background-color",
+          "location": {
+            "line": 70,
+            "column": 3
+          }
+        }
+      ]
+    },
+    {
+      "category": "color",
+      "raw_value": "#ef4444",
+      "normalized_value": "#ef4444",
+      "count": 3,
+      "is_custom_property": false,
+      "is_token_candidate": true,
+      "occurrences": [
+        {
+          "selector": ".header-bar",
+          "property_name": "border-bottom",
+          "location": {
+            "line": 12,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".badge-urgent",
+          "property_name": "background-color",
+          "location": {
+            "line": 53,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".system-notification",
+          "property_name": "border-left",
+          "location": {
+            "line": 81,
+            "column": 3
+          }
+        }
+      ]
+    },
+    {
+      "category": "spacing",
+      "raw_value": "13px",
+      "normalized_value": "13px",
+      "count": 3,
+      "is_custom_property": false,
+      "is_token_candidate": true,
+      "occurrences": [
+        {
+          "selector": ".header-bar .nav-item",
+          "property_name": "margin-right",
+          "location": {
+            "line": 19,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".dashboard-sidebar",
+          "property_name": "padding",
+          "location": {
+            "line": 28,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".badge-urgent",
+          "property_name": "margin-left",
+          "location": {
+            "line": 58,
+            "column": 3
+          }
+        }
+      ]
+    },
+    {
+      "category": "border_radius",
+      "raw_value": "4px",
+      "normalized_value": "4px",
+      "count": 3,
+      "is_custom_property": false,
+      "is_token_candidate": true,
+      "occurrences": [
+        {
+          "selector": ".badge-urgent",
+          "property_name": "border-radius",
+          "location": {
+            "line": 56,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".badge-featured",
+          "property_name": "border-radius",
+          "location": {
+            "line": 65,
+            "column": 3
+          }
+        },
+        {
+          "selector": ".btn-submit-override",
+          "property_name": "border-radius",
+          "location": {
+            "line": 74,
+            "column": 3
+          }
+        }
+      ]
+    }
+  ],
+  "quality_insights": [
+    {
+      "check_id": "excessive-important",
+      "severity": "warning",
+      "title": "Cascade Specificity Override (!important)",
+      "rule_selector": ".header-bar .nav-item",
+      "property_name": "text-decoration",
+      "location": {
+        "line": 20,
+        "column": 3
+      },
+      "explanation": "Declaration 'text-decoration: none !important' overrides normal cascade specificity. Using !important creates technical debt and makes future design system component overrides error-prone.",
+      "suggested_improvement": "Refactor selector specificity (e.g., scoping with a parent class) or use CSS Cascade Layers (@layer) instead of !important.",
+      "context": {
+        "property": "text-decoration",
+        "value": "none"
+      }
+    },
+    {
+      "check_id": "repeated-declaration",
+      "severity": "warning",
+      "title": "Exact Duplicate Declaration",
+      "rule_selector": ".dashboard-sidebar",
+      "property_name": "display",
+      "location": {
+        "line": 30,
+        "column": 3
+      },
+      "explanation": "Property 'display' is declared multiple times with identical value 'block'. The second declaration is redundant.",
+      "suggested_improvement": "Delete the redundant duplicate declaration at line 30.",
+      "context": {
+        "value": "block",
+        "first_location": {
+          "line": 27,
+          "column": 3
+        }
+      }
+    },
+    {
+      "check_id": "repeated-declaration",
+      "severity": "advisory",
+      "title": "Overwritten Property Declaration",
+      "rule_selector": ".candidate-card-legacy .title",
+      "property_name": "color",
+      "location": {
+        "line": 48,
+        "column": 3
+      },
+      "explanation": "Property 'color' was set to '#1e3a8a' (line 45) but overridden by '#374151' in the same block. The earlier value is never rendered.",
+      "suggested_improvement": "Remove the superseded declaration or check if '#1e3a8a' belonged to another selector/state.",
+      "context": {
+        "overwritten": "#1e3a8a",
+        "active": "#374151"
+      }
+    },
+    {
+      "check_id": "excessive-important",
+      "severity": "warning",
+      "title": "Cascade Specificity Override (!important)",
+      "rule_selector": ".badge-urgent",
+      "property_name": "background-color",
+      "location": {
+        "line": 53,
+        "column": 3
+      },
+      "explanation": "Declaration 'background-color: #ef4444 !important' overrides normal cascade specificity. Using !important creates technical debt and makes future design system component overrides error-prone.",
+      "suggested_improvement": "Refactor selector specificity (e.g., scoping with a parent class) or use CSS Cascade Layers (@layer) instead of !important.",
+      "context": {
+        "property": "background-color",
+        "value": "#ef4444"
+      }
+    },
+    {
+      "check_id": "excessive-important",
+      "severity": "warning",
+      "title": "Cascade Specificity Override (!important)",
+      "rule_selector": ".btn-submit-override",
+      "property_name": "background-color",
+      "location": {
+        "line": 70,
+        "column": 3
+      },
+      "explanation": "Declaration 'background-color: #1e3a8a !important' overrides normal cascade specificity. Using !important creates technical debt and makes future design system component overrides error-prone.",
+      "suggested_improvement": "Refactor selector specificity (e.g., scoping with a parent class) or use CSS Cascade Layers (@layer) instead of !important.",
+      "context": {
+        "property": "background-color",
+        "value": "#1e3a8a"
+      }
+    },
+    {
+      "check_id": "excessive-important",
+      "severity": "warning",
+      "title": "Cascade Specificity Override (!important)",
+      "rule_selector": ".btn-submit-override",
+      "property_name": "color",
+      "location": {
+        "line": 71,
+        "column": 3
+      },
+      "explanation": "Declaration 'color: #ffffff !important' overrides normal cascade specificity. Using !important creates technical debt and makes future design system component overrides error-prone.",
+      "suggested_improvement": "Refactor selector specificity (e.g., scoping with a parent class) or use CSS Cascade Layers (@layer) instead of !important.",
+      "context": {
+        "property": "color",
+        "value": "#ffffff"
+      }
+    },
+    {
+      "check_id": "excessive-important",
+      "severity": "warning",
+      "title": "Cascade Specificity Override (!important)",
+      "rule_selector": ".btn-submit-override",
+      "property_name": "padding",
+      "location": {
+        "line": 72,
+        "column": 3
+      },
+      "explanation": "Declaration 'padding: 10px 20px !important' overrides normal cascade specificity. Using !important creates technical debt and makes future design system component overrides error-prone.",
+      "suggested_improvement": "Refactor selector specificity (e.g., scoping with a parent class) or use CSS Cascade Layers (@layer) instead of !important.",
+      "context": {
+        "property": "padding",
+        "value": "10px 20px"
+      }
+    },
+    {
+      "check_id": "excessive-important",
+      "severity": "warning",
+      "title": "Cascade Specificity Override (!important)",
+      "rule_selector": ".btn-submit-override",
+      "property_name": "border",
+      "location": {
+        "line": 73,
+        "column": 3
+      },
+      "explanation": "Declaration 'border: none !important' overrides normal cascade specificity. Using !important creates technical debt and makes future design system component overrides error-prone.",
+      "suggested_improvement": "Refactor selector specificity (e.g., scoping with a parent class) or use CSS Cascade Layers (@layer) instead of !important.",
+      "context": {
+        "property": "border",
+        "value": "none"
+      }
+    },
+    {
+      "check_id": "repeated-design-value",
+      "severity": "advisory",
+      "title": "Un-tokenized Repeated Design Value",
+      "rule_selector": ".badge-featured, .btn-submit-override, .header-bar .nav-item (+3 more)",
+      "property_name": "color",
+      "location": {
+        "line": 10,
+        "column": 3
+      },
+      "explanation": "Literal color '#ffffff' is repeated 6 times across 6 rules without using a design token. Hardcoded values make theme updates error-prone.",
+      "suggested_improvement": "Extract into `:root { --color-palette-ffffff: #ffffff; }` and replace hardcoded instances with `var(--color-palette-ffffff)`.",
+      "context": {
+        "category": "color",
+        "value": "#ffffff",
+        "count": 6,
+        "suggested_var": "--color-palette-ffffff"
+      }
+    },
+    {
+      "check_id": "repeated-design-value",
+      "severity": "advisory",
+      "title": "Un-tokenized Repeated Design Value",
+      "rule_selector": ".badge-featured, .header-bar, .candidate-card-legacy .title (+2 more)",
+      "property_name": "background-color",
+      "location": {
+        "line": 9,
+        "column": 3
+      },
+      "explanation": "Literal color '#1e3a8a' is repeated 5 times across 5 rules without using a design token. Hardcoded values make theme updates error-prone.",
+      "suggested_improvement": "Extract into `:root { --color-palette-1e3a8a: #1e3a8a; }` and replace hardcoded instances with `var(--color-palette-1e3a8a)`.",
+      "context": {
+        "category": "color",
+        "value": "#1e3a8a",
+        "count": 5,
+        "suggested_var": "--color-palette-1e3a8a"
+      }
+    },
+    {
+      "check_id": "repeated-design-value",
+      "severity": "advisory",
+      "title": "Un-tokenized Repeated Design Value",
+      "rule_selector": ".system-notification, .header-bar, .badge-urgent",
+      "property_name": "border-bottom",
+      "location": {
+        "line": 12,
+        "column": 3
+      },
+      "explanation": "Literal color '#ef4444' is repeated 3 times across 3 rules without using a design token. Hardcoded values make theme updates error-prone.",
+      "suggested_improvement": "Extract into `:root { --color-palette-ef4444: #ef4444; }` and replace hardcoded instances with `var(--color-palette-ef4444)`.",
+      "context": {
+        "category": "color",
+        "value": "#ef4444",
+        "count": 3,
+        "suggested_var": "--color-palette-ef4444"
+      }
+    },
+    {
+      "check_id": "repeated-design-value",
+      "severity": "advisory",
+      "title": "Un-tokenized Repeated Design Value",
+      "rule_selector": ".dashboard-sidebar, .badge-urgent, .header-bar .nav-item",
+      "property_name": "margin-right",
+      "location": {
+        "line": 19,
+        "column": 3
+      },
+      "explanation": "Literal spacing '13px' is repeated 3 times across 3 rules without using a design token. Hardcoded values make theme updates error-prone.",
+      "suggested_improvement": "Extract into `:root { --spacing-13px: 13px; }` and replace hardcoded instances with `var(--spacing-13px)`.",
+      "context": {
+        "category": "spacing",
+        "value": "13px",
+        "count": 3,
+        "suggested_var": "--spacing-13px"
+      }
+    },
+    {
+      "check_id": "repeated-design-value",
+      "severity": "advisory",
+      "title": "Un-tokenized Repeated Design Value",
+      "rule_selector": ".btn-submit-override, .badge-featured, .badge-urgent",
+      "property_name": "border-radius",
+      "location": {
+        "line": 56,
+        "column": 3
+      },
+      "explanation": "Literal border radius '4px' is repeated 3 times across 3 rules without using a design token. Hardcoded values make theme updates error-prone.",
+      "suggested_improvement": "Extract into `:root { --radius-4px: 4px; }` and replace hardcoded instances with `var(--radius-4px)`.",
+      "context": {
+        "category": "border_radius",
+        "value": "4px",
+        "count": 3,
+        "suggested_var": "--radius-4px"
+      }
+    },
+    {
+      "check_id": "undefined-variable",
+      "severity": "warning",
+      "title": "Undefined CSS Custom Property",
+      "rule_selector": ".system-notification",
+      "property_name": null,
+      "location": {
+        "line": 83,
+        "column": 3
+      },
+      "explanation": "Custom property '--accent-glow' is referenced via var() in rule '.system-notification', but is never declared in this stylesheet. In browsers, it will resolve to unset.",
+      "suggested_improvement": "Declare '--accent-glow' in `:root` or supply an in-line fallback: `var(--accent-glow, fallback_value)`.",
+      "context": {
+        "variable": "--accent-glow"
+      }
+    }
+  ]
+}

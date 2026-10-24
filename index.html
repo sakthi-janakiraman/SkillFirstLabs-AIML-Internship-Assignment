@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill First Labs — AI/ML Internship Projects</title>
+    <style>
+        :root {
+            --bg-base: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #24344d;
+            --border: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-faint: #64748b;
+            --accent-emerald: #10b981;
+            --accent-sky: #38bdf8;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            padding: 48px 24px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-emerald);
+            margin-bottom: 12px;
+        }
+
+        .brand-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        h1.title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-sky);
+            transform: translateY(-2px);
+            background: var(--bg-card);
+        }
+
+        .card-top {
+            margin-bottom: 24px;
+        }
+
+        .card-tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-sky);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .meta-pill {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-faint);
+        }
+
+        .card-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--accent-emerald);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .card-action span.arrow {
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .project-card:hover .card-action span.arrow {
+            transform: translateX(4px);
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-faint);
+            font-family: var(--font-mono);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span class="brand-badge">Skill First Labs Submission</span>
+            <h1 class="title">AI / ML Internship Projects</h1>
+            <p class="subtitle">Complete implementation for Milestone 1 &amp; Milestone 2 with 63 automated tests</p>
+        </header>
+
+        <div class="cards-grid">
+            <!-- Milestone 1 -->
+            <a href="/milestone-1-css-insight-engine/report.html" class="project-card">
+                <div class="card-top">
+                    <span class="card-tag">Milestone 1</span>
+                    <h2 class="card-title">CSS Insight Engine</h2>
+                    <p class="card-desc">Spec-compliant CSS static analysis using tinycss2. Discovers design tokens (colors, spacing, variables) and flags dead declarations and specificity debt.</p>
+                    <div class="card-meta">
+                        <span class="meta-pill">31 Tests Passed</span>
+                        <span class="meta-pill">Offline Ready</span>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <span>Open Design Intelligence Report</span>
+                    <span class="arrow">&rarr;</span>
+                </div>
+            </a>
+
+            <!-- Milestone 2 -->
+            <a href="/milestone-2-talentgraph-agent/reports/consistency_report.html" class="project-card">
+                <div class="card-top">
+                    <span class="card-tag">Milestone 2</span>
+                    <h2 class="card-title">TalentGraph Agent</h2>
+                    <p class="card-desc">Explainable career intelligence assistant with tool-grounded generation, deterministic Python scoring, and Temperature 0.0 consistency evaluation.</p>
+                    <div class="card-meta">
+                        <span class="meta-pill">32 Tests Passed</span>
+                        <span class="meta-pill">100% Agreement</span>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <span>Open Grounding &amp; Consistency Report</span>
+                    <span class="arrow">&rarr;</span>
+                </div>
+            </a>
+        </div>
+
+        <footer class="footer">
+            Server running on http://localhost:8000 &bull; Press Ctrl+C in terminal to stop
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+{
+  "Docker": [
+    "Container Architecture & Image Layers",
+    "Writing Production-Ready Dockerfiles",
+    "Multi-Container Applications with Docker Compose",
+    "Container Networking and Persistent Storage Volumes"
+  ],
+  "FastAPI": [
+    "Asynchronous Python with async/await",
+    "Pydantic Models and Request/Response Validation",
+    "RESTful API Route Design & Status Codes",
+    "Dependency Injection and Middleware Handling"
+  ],
+  "PostgreSQL": [
+    "Relational Database Schema Design & Constraints",
+    "Indexing Strategies (B-tree, GIN) for Query Optimization",
+    "Transactions, ACID Guarantees, and Isolation Levels",
+    "Complex Joins, Aggregations, and Window Functions"
+  ],
+  "PyTorch": [
+    "Tensors and Autograd Engine Fundamentals",
+    "Building Custom Layers and Modules with nn.Module",
+    "Training Loops, Loss Functions, and Adam/SGD Optimizers",
+    "Model Evaluation and Checkpoint Saving/Loading"
+  ],
+  "Data Visualization": [
+    "Visual Hierarchy and Color Theory for Data Display",
+    "Interactive Visualizations with Matplotlib and Seaborn",
+    "Building Exploratory Dashboards with Plotly",
+    "Communicating Statistical Distributions Accurately"
+  ],
+  "Kubernetes": [
+    "Core Objects: Pods, Deployments, and Services",
+    "ConfigMaps, Secrets, and Environment Injection",
+    "Ingress Controllers and Service Mesh Basics",
+    "Cluster Health Probes (Liveness & Readiness)"
+  ],
+  "AWS": [
+    "AWS IAM Roles, Policies, and Security Best Practices",
+    "EC2 Compute Instances & VPC Networking Subnets",
+    "S3 Storage Classes and Lifecycle Rules",
+    "CloudWatch Monitoring and Alerting"
+  ],
+  "CI/CD": [
+    "Automated Testing in GitHub Actions Workflows",
+    "Build Artifact Caching and Matrix Builds",
+    "Continuous Delivery Pipelines and Semantic Versioning",
+    "Secrets Management in Automated CI Pipelines"
+  ],
+  "Transformers": [
+    "Self-Attention Mechanism and Multi-Head Attention",
+    "Encoder vs Decoder Architectures (BERT vs GPT)",
+    "Hugging Face Transformers Pipeline & Tokenizers",
+    "Parameter-Efficient Fine-Tuning (LoRA / PEFT)"
+  ],
+  "NLP": [
+    "Text Preprocessing, Tokenization, and Lemmatization",
+    "TF-IDF, Bag-of-Words, and Static Word Embeddings",
+    "Named Entity Recognition (NER) & Part-of-Speech Tagging",
+    "Semantic Similarity and Dense Vector Embeddings"
+  ],
+  "React": [
+    "Component Lifecycle and JSX Fundamentals",
+    "React Hooks (useState, useEffect, useMemo, useCallback)",
+    "State Management Strategies and Context API",
+    "Performance Optimization & Virtual DOM Reconciliation"
+  ],
+  "TypeScript": [
+    "Type Annotations, Interfaces, and Type Aliases",
+    "Generics and Utility Types (Partial, Record, Pick)",
+    "Strict Null Checking and Discriminated Unions",
+    "TypeScript Configuration (tsconfig) for Production"
+  ],
+  "Scikit-Learn": [
+    "Data Preprocessing & Feature Scaling (StandardScaler)",
+    "Model Selection: Cross-Validation & Grid Search",
+    "Supervised Classification (Random Forests, Gradient Boosting)",
+    "Evaluation Metrics: Precision, Recall, F1, ROC-AUC"
+  ],
+  "Machine Learning": [
+    "Supervised vs Unsupervised Learning Paradigms",
+    "Bias-Variance Tradeoff and Regularization (L1/L2)",
+    "Feature Engineering and Exploratory Data Analysis",
+    "Model Generalization and Overfitting Mitigation"
+  ],
+  "Python": [
+    "Core Data Structures (Lists, Dicts, Sets, Tuples)",
+    "Object-Oriented Programming (Classes, Inheritance)",
+    "Exception Handling and Context Managers (with)",
+    "Generators, Iterators, and List Comprehensions"
+  ],
+  "SQL": [
+    "SELECT Queries, Filtering (WHERE/HAVING), and GROUP BY",
+    "JOIN Types (INNER, LEFT, RIGHT, FULL OUTER)",
+    "Subqueries and Common Table Expressions (CTEs)",
+    "Database Normalization (1NF, 2NF, 3NF)"
+  ],
+  "Linux": [
+    "Shell Navigation and File Permissions (chmod, chown)",
+    "Process Management (ps, top, kill, systemctl)",
+    "Package Management and Environment Variables",
+    "Bash Scripting Fundamentals for Automation"
+  ]
+}

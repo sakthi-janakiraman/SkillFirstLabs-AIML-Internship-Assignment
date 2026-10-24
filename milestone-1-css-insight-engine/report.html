@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS INSIGHT ENGINE - Interactive Design Studio</title>
+    <style>
+        :root {
+            --bg-base: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #24344d;
+            --border: #334155;
+            --border-faint: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-faint: #64748b;
+            --accent-emerald: #10b981;
+            --accent-sky: #38bdf8;
+            --accent-amber: #f59e0b;
+            --accent-coral: #ef4444;
+            --accent-violet: #a855f7;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 24px 20px 48px;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-emerald);
+        }
+
+        .brand-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        h1.title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            color: var(--text-main);
+        }
+
+        .btn:hover {
+            background: var(--bg-card);
+            border-color: var(--accent-sky);
+        }
+
+        .btn-primary {
+            background: var(--accent-emerald);
+            color: #042f2e;
+            border-color: var(--accent-emerald);
+            font-weight: 700;
+        }
+
+        .btn-primary:hover {
+            background: #34d399;
+            border-color: #34d399;
+        }
+
+        .btn-active {
+            background: var(--bg-card);
+            border-color: var(--accent-sky);
+            color: var(--accent-sky);
+        }
+
+        /* Drag & Drop File Zone */
+        .dropzone-box {
+            background: var(--bg-surface);
+            border: 2px dashed var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .dropzone-box:hover {
+            border-color: var(--accent-sky);
+            background: rgba(56, 189, 248, 0.04);
+        }
+
+        .dropzone-box.drag-over {
+            border-color: var(--accent-emerald);
+            background: rgba(16, 185, 129, 0.08);
+            transform: scale(1.005);
+        }
+
+        .dropzone-icon {
+            font-size: 26px;
+            width: 46px;
+            height: 46px;
+            border-radius: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .dropzone-content {
+            flex: 1;
+        }
+
+        .dropzone-title {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .dropzone-link {
+            color: var(--accent-sky);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .dropzone-subtitle {
+            font-size: 12px;
+            color: var(--text-faint);
+        }
+
+        /* Interactive Workflow Bar */
+        .workflow-bar {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-faint);
+        }
+
+        .preset-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Sandbox Drawer */
+        .sandbox-panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+            display: none;
+        }
+
+        .sandbox-panel.active {
+            display: block;
+        }
+
+        .sandbox-textarea {
+            width: 100%;
+            height: 160px;
+            background: #060911;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #f1f5f9;
+            resize: vertical;
+            margin-bottom: 12px;
+            outline: none;
+        }
+
+        .sandbox-textarea:focus {
+            border-color: var(--accent-sky);
+        }
+
+        /* Stat Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            transition: all 0.15s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-sky);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-faint);
+        }
+
+        .stat-value {
+            font-size: 26px;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            color: #ffffff;
+        }
+
+        /* Section Layout */
+        .section {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px;
+            margin-bottom: 24px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-faint);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 12px;
+            color: var(--text-faint);
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 860px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Token Swatches */
+        .token-swatches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 8px;
+        }
+
+        .token-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-faint);
+            border-radius: 6px;
+            padding: 7px 9px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .token-chip:hover {
+            border-color: var(--accent-sky);
+            background: var(--bg-card-hover);
+            transform: translateY(-1px);
+        }
+
+        .color-preview {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+        }
+
+        .token-chip-info {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .token-val {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .token-count {
+            font-size: 10px;
+            color: var(--text-faint);
+        }
+
+        /* Metric Pills */
+        .pills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .metric-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-faint);
+            border-radius: 16px;
+            padding: 5px 12px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .metric-pill:hover {
+            border-color: var(--accent-sky);
+        }
+
+        .pill-val {
+            color: var(--accent-sky);
+            font-weight: 600;
+        }
+
+        .pill-count {
+            color: var(--text-faint);
+            font-size: 10px;
+        }
+
+        /* Data Tables */
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        table.data-table th {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-faint);
+        }
+
+        table.data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-faint);
+            color: var(--text-main);
+            vertical-align: middle;
+        }
+
+        table.data-table tr:hover td {
+            background: var(--bg-card);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-coral   { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .badge-amber   { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .badge-accent  { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+        .badge-neutral { background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border); }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 12px;
+            color: #ffffff;
+            font-size: 12px;
+            outline: none;
+            width: 220px;
+            font-family: var(--font-sans);
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-sky);
+        }
+
+        /* Finding Cards */
+        .findings-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .finding-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-amber);
+            border-radius: 6px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .finding-card.severity-warning {
+            border-left-color: var(--accent-amber);
+        }
+
+        .finding-card.severity-advisory {
+            border-left-color: var(--accent-coral);
+        }
+
+        .finding-card.severity-info {
+            border-left-color: var(--accent-emerald);
+        }
+
+        .finding-card-clean {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: var(--accent-emerald);
+            padding: 18px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .finding-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .finding-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .finding-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .finding-loc {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-faint);
+        }
+
+        .finding-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            gap: 16px;
+        }
+
+        .finding-desc {
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .finding-action {
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: var(--accent-sky);
+            display: flex;
+            gap: 6px;
+        }
+
+        .action-label {
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Rules Explorer */
+        .rules-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 6px;
+        }
+
+        .rule-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-faint);
+            border-radius: 6px;
+            padding: 12px 14px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            transition: all 0.15s ease;
+        }
+
+        .rule-block:hover {
+            border-color: var(--border);
+        }
+
+        .at-ctx {
+            color: var(--accent-violet);
+            font-size: 11px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .rule-selector {
+            color: var(--accent-sky);
+            font-weight: 700;
+        }
+
+        .rule-body {
+            padding-left: 16px;
+            color: var(--text-muted);
+            margin: 4px 0;
+        }
+
+        .prop {
+            color: #e2e8f0;
+        }
+
+        .val {
+            color: #cbd5e1;
+        }
+
+        .important-tag {
+            color: var(--accent-coral);
+            font-weight: 700;
+        }
+
+        .rule-close {
+            color: var(--text-faint);
+        }
+
+        /* Code snippets */
+        code {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e2e8f0;
+        }
+
+        .text-faint {
+            color: var(--text-faint);
+            font-size: 12px;
+        }
+
+        .empty-state {
+            color: var(--text-faint);
+            font-size: 13px;
+            padding: 12px 0;
+            font-style: italic;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--accent-emerald);
+            color: #042f2e;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-faint);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Toast -->
+        <div id="toast" class="toast">Copied to clipboard!</div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-brand">
+                <span class="brand-badge">Milestone 1 &bull; Design Intelligence</span>
+                <h1 class="title">CSS INSIGHT ENGINE</h1>
+                <p class="subtitle" id="report-subtitle">Interactive Design Tokens &amp; Quality Studio &mdash; <code id="active-filename">sample_clean.css</code></p>
+            </div>
+            <div class="header-actions">
+                <button class="btn" id="btn-toggle-sandbox" onclick="toggleSandbox()">✎ Custom CSS Sandbox</button>
+                <button class="btn btn-primary" onclick="reanalyzeCurrent()">⚡ Re-analyze</button>
+            </div>
+        </header>
+
+        <!-- Drag & Drop Zone -->
+        <div class="dropzone-box" id="dropzone" onclick="document.getElementById('file-upload-input').click()">
+            <input type="file" id="file-upload-input" accept=".css,text/css" style="display: none;" onchange="handleFileSelect(event)">
+            <div class="dropzone-icon">📁</div>
+            <div class="dropzone-content">
+                <strong class="dropzone-title">Drop your CSS file here, or <span class="dropzone-link">click to browse</span></strong>
+                <p class="dropzone-subtitle">Drop any custom .css file to inspect AST rules, design system tokens, and dead-code audits in real-time</p>
+            </div>
+            <button class="btn" type="button" onclick="event.stopPropagation(); document.getElementById('file-upload-input').click()">Choose File</button>
+        </div>
+
+        <!-- Interactive Workflow Bar -->
+        <div class="workflow-bar">
+            <div class="workflow-step">
+                <span class="step-label">Select Stylesheet:</span>
+                <div class="preset-group">
+                    <button class="btn btn-active" id="preset-clean" onclick="loadPreset('clean')">Clean Design System</button>
+                    <button class="btn" id="preset-messy" onclick="loadPreset('messy')">Legacy / Messy (Debt &amp; Overwrites)</button>
+                    <button class="btn" id="preset-custom" onclick="loadPreset('custom')">Custom Playground</button>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <span class="step-label">Active Engine:</span>
+                <span class="badge badge-emerald">AST Compiler (Zero Regex)</span>
+            </div>
+        </div>
+
+        <!-- Custom CSS Sandbox Panel -->
+        <div class="sandbox-panel" id="sandbox-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 700; color: #fff;">Interactive CSS Code Editor</span>
+                <span class="text-faint">Type or paste CSS below to analyze on-the-fly:</span>
+            </div>
+            <textarea class="sandbox-textarea" id="custom-css-input" placeholder="Paste CSS stylesheet here..."></textarea>
+            <div style="display: flex; justify-content: flex-end; gap: 8px;">
+                <button class="btn" onclick="clearSandbox()">Clear</button>
+                <button class="btn btn-primary" onclick="runCustomAnalysis()">Run Analysis &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Executive Metrics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Total Style Rules</span>
+                <span class="stat-value" id="stat-rules">25</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Total Declarations</span>
+                <span class="stat-value" id="stat-decls">121</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Unique Properties</span>
+                <span class="stat-value" id="stat-props">57</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">!important Flags</span>
+                <span class="stat-value" id="stat-important">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Token Candidates</span>
+                <span class="stat-value" id="stat-candidates">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Quality Findings</span>
+                <span class="stat-value" id="stat-findings">0</span>
+            </div>
+        </div>
+
+        <!-- Section: Design Tokens -->
+        <section class="section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Discovered Design Tokens</h2>
+                    <p class="section-subtitle">Click any color swatch to copy value or filter rules.</p>
+                </div>
+            </div>
+            
+            <div class="two-col" style="margin-bottom: 24px;">
+                <div>
+                    <h3 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-faint); margin-bottom: 12px;">Color Palette Swatches</h3>
+                    <div class="token-swatches-grid" id="swatches-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-faint); margin-bottom: 12px;">Spacing &amp; Radius Scale</h3>
+                    <div class="pills-container" id="spacing-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h3 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-faint); margin-bottom: 12px;">CSS Custom Properties</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Value</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody id="custom-props-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-faint); margin-bottom: 12px;">Repeated Literals (Token Candidates &ge; 3x)</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Literal Value</th>
+                                <th>Type</th>
+                                <th>Repeats</th>
+                                <th>Occurrences</th>
+                            </tr>
+                        </thead>
+                        <tbody id="candidates-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Quality Audits -->
+        <section class="section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Quality &amp; Specificity Audits</h2>
+                    <p class="section-subtitle">Explainable static analysis findings with actionable refactoring advice.</p>
+                </div>
+                <div class="filter-controls">
+                    <button class="btn btn-active" onclick="filterFindings('all', this)">All</button>
+                    <button class="btn" onclick="filterFindings('warning', this)">Warnings</button>
+                    <button class="btn" onclick="filterFindings('advisory', this)">Advisories</button>
+                    <button class="btn" onclick="filterFindings('info', this)">Info</button>
+                </div>
+            </div>
+
+            <div class="findings-list" id="findings-container">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- Section: Parsed Rules Explorer -->
+        <section class="section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Parsed Rule Tree (AST Overview)</h2>
+                    <p class="section-subtitle">Interactive rule explorer. Filter selectors or properties in real-time.</p>
+                </div>
+                <div class="filter-controls">
+                    <input type="text" class="search-box" id="rule-search" placeholder="Filter rules (.btn, color...)" oninput="filterRules()">
+                    <button class="btn" onclick="resetRuleFilter()">Reset</button>
+                </div>
+            </div>
+
+            <div class="rules-container" id="rules-container">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span>Skill First Labs &bull; AI/ML Internship Shortlisting Assignment</span>
+            <span>CSS Insight Engine &bull; Zero External Dependencies &bull; 100% Offline</span>
+        </footer>
+    </div>
+
+    <!-- Embedded Scripts for Offline Client-Side Intelligence -->
+    <script>
+        const INITIAL_REPORT = {"metadata": {"engine": "CSS Insight Engine", "version": "1.0.0", "file_path": "C:\\SkillFirstLabs-AIML-Internship-Assignment\\milestone-1-css-insight-engine\\samples\\sample_clean.css", "stats": {"total_rules": 25, "total_declarations": 121, "unique_properties": 57, "total_colors": 15, "total_spacings": 2, "total_custom_properties": 31, "token_candidate_count": 0, "quality_findings_count": 0, "important_declarations_count": 0}}, "stylesheet": {"file_path": "C:\\SkillFirstLabs-AIML-Internship-Assignment\\milestone-1-css-insight-engine\\samples\\sample_clean.css", "total_style_rules": 25, "total_declarations": 121, "unique_property_count": 57, "comments_count": 16, "source_bytes": 5430, "source_lines": 224, "property_frequency": {"padding": 11, "background-color": 10, "color": 9, "font-size": 8, "border-radius": 7, "display": 5, "border": 5, "font-weight": 4, "font-family": 3, "margin": 3, "gap": 3, "grid-template-columns": 3, "justify-content": 2, "align-items": 2, "box-shadow": 2, "margin-bottom": 2, "margin-top": 2, "--color-brand-primary": 1, "--color-brand-surface": 1, "--color-accent-emerald": 1, "--color-accent-emerald-dark": 1, "--color-neutral-bg": 1, "--color-neutral-card": 1, "--color-neutral-border": 1, "--color-neutral-text-main": 1, "--color-neutral-text-muted": 1, "--color-status-shortlisted": 1, "--color-status-interviewing": 1, "--color-status-offered": 1, "--font-family-base": 1, "--font-family-mono": 1, "--font-size-xs": 1, "--font-size-sm": 1, "--font-size-base": 1, "--font-size-lg": 1, "--font-size-xl": 1, "--spacing-2xs": 1, "--spacing-xs": 1, "--spacing-sm": 1, "--spacing-md": 1, "--spacing-lg": 1, "--spacing-xl": 1, "--radius-sm": 1, "--radius-md": 1, "--radius-lg": 1, "--radius-full": 1, "--shadow-subtle": 1, "--shadow-card": 1, "line-height": 1, "border-bottom": 1, "max-width": 1, "margin-left": 1, "margin-right": 1, "flex-grow": 1, "border-color": 1, "flex-wrap": 1, "cursor": 1}, "parse_errors": [], "at_rules": [{"keyword": "media", "prelude": "(min-width: 768px)", "location": {"line": 211, "column": 1}, "child_rules": []}, {"keyword": "media", "prelude": "(min-width: 1024px)", "location": {"line": 217, "column": 1}, "child_rules": []}], "rules": [{"rule_index": 1, "selector_text": ":root", "selectors": [":root"], "at_rule_context": [], "location": {"line": 7, "column": 1}, "declarations": [{"name": "--color-brand-primary", "value": "#0f172a", "important": false, "is_custom_property": true, "location": {"line": 9, "column": 3}, "raw_value": "#0f172a"}, {"name": "--color-brand-surface", "value": "#1e293b", "important": false, "is_custom_property": true, "location": {"line": 10, "column": 3}, "raw_value": "#1e293b"}, {"name": "--color-accent-emerald", "value": "#10b981", "important": false, "is_custom_property": true, "location": {"line": 11, "column": 3}, "raw_value": "#10b981"}, {"name": "--color-accent-emerald-dark", "value": "#059669", "important": false, "is_custom_property": true, "location": {"line": 12, "column": 3}, "raw_value": "#059669"}, {"name": "--color-neutral-bg", "value": "#f8fafc", "important": false, "is_custom_property": true, "location": {"line": 15, "column": 3}, "raw_value": "#f8fafc"}, {"name": "--color-neutral-card", "value": "#ffffff", "important": false, "is_custom_property": true, "location": {"line": 16, "column": 3}, "raw_value": "#ffffff"}, {"name": "--color-neutral-border", "value": "#e2e8f0", "important": false, "is_custom_property": true, "location": {"line": 17, "column": 3}, "raw_value": "#e2e8f0"}, {"name": "--color-neutral-text-main", "value": "#1e293b", "important": false, "is_custom_property": true, "location": {"line": 18, "column": 3}, "raw_value": "#1e293b"}, {"name": "--color-neutral-text-muted", "value": "#64748b", "important": false, "is_custom_property": true, "location": {"line": 19, "column": 3}, "raw_value": "#64748b"}, {"name": "--color-status-shortlisted", "value": "#0284c7", "important": false, "is_custom_property": true, "location": {"line": 22, "column": 3}, "raw_value": "#0284c7"}, {"name": "--color-status-interviewing", "value": "#d97706", "important": false, "is_custom_property": true, "location": {"line": 23, "column": 3}, "raw_value": "#d97706"}, {"name": "--color-status-offered", "value": "#059669", "important": false, "is_custom_property": true, "location": {"line": 24, "column": 3}, "raw_value": "#059669"}, {"name": "--font-family-base", "value": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif", "important": false, "is_custom_property": true, "location": {"line": 27, "column": 3}, "raw_value": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"}, {"name": "--font-family-mono", "value": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace", "important": false, "is_custom_property": true, "location": {"line": 28, "column": 3}, "raw_value": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"}, {"name": "--font-size-xs", "value": "0.75rem", "important": false, "is_custom_property": true, "location": {"line": 29, "column": 3}, "raw_value": "0.75rem"}, {"name": "--font-size-sm", "value": "0.875rem", "important": false, "is_custom_property": true, "location": {"line": 30, "column": 3}, "raw_value": "0.875rem"}, {"name": "--font-size-base", "value": "1rem", "important": false, "is_custom_property": true, "location": {"line": 31, "column": 3}, "raw_value": "1rem"}, {"name": "--font-size-lg", "value": "1.125rem", "important": false, "is_custom_property": true, "location": {"line": 32, "column": 3}, "raw_value": "1.125rem"}, {"name": "--font-size-xl", "value": "1.5rem", "important": false, "is_custom_property": true, "location": {"line": 33, "column": 3}, "raw_value": "1.5rem"}, {"name": "--spacing-2xs", "value": "0.25rem", "important": false, "is_custom_property": true, "location": {"line": 36, "column": 3}, "raw_value": "0.25rem"}, {"name": "--spacing-xs", "value": "0.5rem", "important": false, "is_custom_property": true, "location": {"line": 37, "column": 3}, "raw_value": "0.5rem"}, {"name": "--spacing-sm", "value": "0.75rem", "important": false, "is_custom_property": true, "location": {"line": 38, "column": 3}, "raw_value": "0.75rem"}, {"name": "--spacing-md", "value": "1rem", "important": false, "is_custom_property": true, "location": {"line": 39, "column": 3}, "raw_value": "1rem"}, {"name": "--spacing-lg", "value": "1.5rem", "important": false, "is_custom_property": true, "location": {"line": 40, "column": 3}, "raw_value": "1.5rem"}, {"name": "--spacing-xl", "value": "2rem", "important": false, "is_custom_property": true, "location": {"line": 41, "column": 3}, "raw_value": "2rem"}, {"name": "--radius-sm", "value": "4px", "important": false, "is_custom_property": true, "location": {"line": 44, "column": 3}, "raw_value": "4px"}, {"name": "--radius-md", "value": "8px", "important": false, "is_custom_property": true, "location": {"line": 45, "column": 3}, "raw_value": "8px"}, {"name": "--radius-lg", "value": "12px", "important": false, "is_custom_property": true, "location": {"line": 46, "column": 3}, "raw_value": "12px"}, {"name": "--radius-full", "value": "9999px", "important": false, "is_custom_property": true, "location": {"line": 47, "column": 3}, "raw_value": "9999px"}, {"name": "--shadow-subtle", "value": "0 1px 3px 0 rgba(0, 0, 0, 0.05)", "important": false, "is_custom_property": true, "location": {"line": 48, "column": 3}, "raw_value": "0 1px 3px 0 rgba(0, 0, 0, 0.05)"}, {"name": "--shadow-card", "value": "0 4px 6px -1px rgba(0, 0, 0, 0.07)", "important": false, "is_custom_property": true, "location": {"line": 49, "column": 3}, "raw_value": "0 4px 6px -1px rgba(0, 0, 0, 0.07)"}]}, {"rule_index": 2, "selector_text": "body", "selectors": ["body"], "at_rule_context": [], "location": {"line": 53, "column": 1}, "declarations": [{"name": "font-family", "value": "var(--font-family-base)", "important": false, "is_custom_property": false, "location": {"line": 54, "column": 3}, "raw_value": "var(--font-family-base)"}, {"name": "background-color", "value": "var(--color-neutral-bg)", "important": false, "is_custom_property": false, "location": {"line": 55, "column": 3}, "raw_value": "var(--color-neutral-bg)"}, {"name": "color", "value": "var(--color-neutral-text-main)", "important": false, "is_custom_property": false, "location": {"line": 56, "column": 3}, "raw_value": "var(--color-neutral-text-main)"}, {"name": "margin", "value": "0", "important": false, "is_custom_property": false, "location": {"line": 57, "column": 3}, "raw_value": "0"}, {"name": "padding", "value": "0", "important": false, "is_custom_property": false, "location": {"line": 58, "column": 3}, "raw_value": "0"}, {"name": "line-height", "value": "1.5", "important": false, "is_custom_property": false, "location": {"line": 59, "column": 3}, "raw_value": "1.5"}]}, {"rule_index": 3, "selector_text": ".dashboard-header", "selectors": [".dashboard-header"], "at_rule_context": [], "location": {"line": 63, "column": 1}, "declarations": [{"name": "background-color", "value": "var(--color-brand-primary)", "important": false, "is_custom_property": false, "location": {"line": 64, "column": 3}, "raw_value": "var(--color-brand-primary)"}, {"name": "border-bottom", "value": "2px solid var(--color-accent-emerald)", "important": false, "is_custom_property": false, "location": {"line": 65, "column": 3}, "raw_value": "2px solid var(--color-accent-emerald)"}, {"name": "padding", "value": "var(--spacing-sm) var(--spacing-lg)", "important": false, "is_custom_property": false, "location": {"line": 66, "column": 3}, "raw_value": "var(--spacing-sm) var(--spacing-lg)"}, {"name": "display", "value": "flex", "important": false, "is_custom_property": false, "location": {"line": 67, "column": 3}, "raw_value": "flex"}, {"name": "justify-content", "value": "space-between", "important": false, "is_custom_property": false, "location": {"line": 68, "column": 3}, "raw_value": "space-between"}, {"name": "align-items", "value": "center", "important": false, "is_custom_property": false, "location": {"line": 69, "column": 3}, "raw_value": "center"}]}, {"rule_index": 4, "selector_text": ".brand-title", "selectors": [".brand-title"], "at_rule_context": [], "location": {"line": 72, "column": 1}, "declarations": [{"name": "color", "value": "var(--color-neutral-card)", "important": false, "is_custom_property": false, "location": {"line": 73, "column": 3}, "raw_value": "var(--color-neutral-card)"}, {"name": "font-size", "value": "var(--font-size-lg)", "important": false, "is_custom_property": false, "location": {"line": 74, "column": 3}, "raw_value": "var(--font-size-lg)"}, {"name": "font-weight", "value": "700", "important": false, "is_custom_property": false, "location": {"line": 75, "column": 3}, "raw_value": "700"}, {"name": "margin", "value": "0", "important": false, "is_custom_property": false, "location": {"line": 76, "column": 3}, "raw_value": "0"}]}, {"rule_index": 5, "selector_text": ".nav-counter", "selectors": [".nav-counter"], "at_rule_context": [], "location": {"line": 79, "column": 1}, "declarations": [{"name": "background-color", "value": "var(--color-accent-emerald)", "important": false, "is_custom_property": false, "location": {"line": 80, "column": 3}, "raw_value": "var(--color-accent-emerald)"}, {"name": "color", "value": "var(--color-neutral-card)", "important": false, "is_custom_property": false, "location": {"line": 81, "column": 3}, "raw_value": "var(--color-neutral-card)"}, {"name": "font-size", "value": "var(--font-size-xs)", "important": false, "is_custom_property": false, "location": {"line": 82, "column": 3}, "raw_value": "var(--font-size-xs)"}, {"name": "padding", "value": "var(--spacing-2xs) var(--spacing-xs)", "important": false, "is_custom_property": false, "location": {"line": 83, "column": 3}, "raw_value": "var(--spacing-2xs) var(--spacing-xs)"}, {"name": "border-radius", "value": "var(--radius-full)", "important": false, "is_custom_property": false, "location": {"line": 84, "column": 3}, "raw_value": "var(--radius-full)"}]}, {"rule_index": 6, "selector_text": ".talent-container", "selectors": [".talent-container"], "at_rule_context": [], "location": {"line": 88, "column": 1}, "declarations": [{"name": "max-width", "value": "1200px", "important": false, "is_custom_property": false, "location": {"line": 89, "column": 3}, "raw_value": "1200px"}, {"name": "margin-left", "value": "auto", "important": false, "is_custom_property": false, "location": {"line": 90, "column": 3}, "raw_value": "auto"}, {"name": "margin-right", "value": "auto", "important": false, "is_custom_property": false, "location": {"line": 91, "column": 3}, "raw_value": "auto"}, {"name": "padding", "value": "var(--spacing-lg)", "important": false, "is_custom_property": false, "location": {"line": 92, "column": 3}, "raw_value": "var(--spacing-lg)"}]}, {"rule_index": 7, "selector_text": ".filter-toolbar", "selectors": [".filter-toolbar"], "at_rule_context": [], "location": {"line": 96, "column": 1}, "declarations": [{"name": "background-color", "value": "var(--color-neutral-card)", "important": false, "is_custom_property": false, "location": {"line": 97, "column": 3}, "raw_value": "var(--color-neutral-card)"}, {"name": "border", "value": "1px solid var(--color-neutral-border)", "important": false, "is_custom_property": false, "location": {"line": 98, "column": 3}, "raw_value": "1px solid var(--color-neutral-border)"}, {"name": "border-radius", "value": "var(--radius-md)", "important": false, "is_custom_property": false, "location": {"line": 99, "column": 3}, "raw_value": "var(--radius-md)"}, {"name": "padding", "value": "var(--spacing-md)", "important": false, "is_custom_property": false, "location": {"line": 100, "column": 3}, "raw_value": "var(--spacing-md)"}, {"name": "box-shadow", "value": "var(--shadow-subtle)", "important": false, "is_custom_property": false, "location": {"line": 101, "column": 3}, "raw_value": "var(--shadow-subtle)"}, {"name": "display", "value": "flex", "important": false, "is_custom_property": false, "location": {"line": 102, "column": 3}, "raw_value": "flex"}, {"name": "gap", "value": "var(--spacing-md)", "important": false, "is_custom_property": false, "location": {"line": 103, "column": 3}, "raw_value": "var(--spacing-md)"}, {"name": "margin-bottom", "value": "var(--spacing-xl)", "important": false, "is_custom_property": false, "location": {"line": 104, "column": 3}, "raw_value": "var(--spacing-xl)"}]}, {"rule_index": 8, "selector_text": ".search-input", "selectors": [".search-input"], "at_rule_context": [], "location": {"line": 107, "column": 1}, "declarations": [{"name": "font-family", "value": "var(--font-family-base)", "important": false, "is_custom_property": false, "location": {"line": 108, "column": 3}, "raw_value": "var(--font-family-base)"}, {"name": "font-size", "value": "var(--font-size-sm)", "important": false, "is_custom_property": false, "location": {"line": 109, "column": 3}, "raw_value": "var(--font-size-sm)"}, {"name": "border", "value": "1px solid var(--color-neutral-border)", "important": false, "is_custom_property": false, "location": {"line": 110, "column": 3}, "raw_value": "1px solid var(--color-neutral-border)"}, {"name": "border-radius", "value": "var(--radius-sm)", "important": false, "is_custom_property": false, "location": {"line": 111, "column": 3}, "raw_value": "var(--radius-sm)"}, {"name": "padding", "value": "var(--spacing-xs) var(--spacing-sm)", "important": false, "is_custom_property": false, "location": {"line": 112, "column": 3}, "raw_value": "var(--spacing-xs) var(--spacing-sm)"}, {"name": "flex-grow", "value": "1", "important": false, "is_custom_property": false, "location": {"line": 113, "column": 3}, "raw_value": "1"}]}, {"rule_index": 9, "selector_text": ".candidate-grid", "selectors": [".candidate-grid"], "at_rule_context": [], "location": {"line": 117, "column": 1}, "declarations": [{"name": "display", "value": "grid", "important": false, "is_custom_property": false, "location": {"line": 118, "column": 3}, "raw_value": "grid"}, {"name": "grid-template-columns", "value": "1fr", "important": false, "is_custom_property": false, "location": {"line": 119, "column": 3}, "raw_value": "1fr"}, {"name": "gap", "value": "var(--spacing-lg)", "important": false, "is_custom_property": false, "location": {"line": 120, "column": 3}, "raw_value": "var(--spacing-lg)"}]}, {"rule_index": 10, "selector_text": ".candidate-card", "selectors": [".candidate-card"], "at_rule_context": [], "location": {"line": 123, "column": 1}, "declarations": [{"name": "background-color", "value": "var(--color-neutral-card)", "important": false, "is_custom_property": false, "location": {"line": 124, "column": 3}, "raw_value": "var(--color-neutral-card)"}, {"name": "border", "value": "1px solid var(--color-neutral-border)", "important": false, "is_custom_property": false, "location": {"line": 125, "column": 3}, "raw_value": "1px solid var(--color-neutral-border)"}, {"name": "border-radius", "value": "var(--radius-lg)", "important": false, "is_custom_property": false, "location": {"line": 126, "column": 3}, "raw_value": "var(--radius-lg)"}, {"name": "padding", "value": "var(--spacing-lg)", "important": false, "is_custom_property": false, "location": {"line": 127, "column": 3}, "raw_value": "var(--spacing-lg)"}, {"name": "box-shadow", "value": "var(--shadow-card)", "important": false, "is_custom_property": false, "location": {"line": 128, "column": 3}, "raw_value": "var(--shadow-card)"}]}, {"rule_index": 11, "selector_text": ".candidate-card:hover", "selectors": [".candidate-card:hover"], "at_rule_context": [], "location": {"line": 131, "column": 1}, "declarations": [{"name": "border-color", "value": "var(--color-accent-emerald)", "important": false, "is_custom_property": false, "location": {"line": 132, "column": 3}, "raw_value": "var(--color-accent-emerald)"}]}, {"rule_index": 12, "selector_text": ".candidate-header", "selectors": [".candidate-header"], "at_rule_context": [], "location": {"line": 135, "column": 1}, "declarations": [{"name": "display", "value": "flex", "important": false, "is_custom_property": false, "location": {"line": 136, "column": 3}, "raw_value": "flex"}, {"name": "justify-content", "value": "space-between", "important": false, "is_custom_property": false, "location": {"line": 137, "column": 3}, "raw_value": "space-between"}, {"name": "align-items", "value": "flex-start", "important": false, "is_custom_property": false, "location": {"line": 138, "column": 3}, "raw_value": "flex-start"}, {"name": "margin-bottom", "value": "var(--spacing-sm)", "important": false, "is_custom_property": false, "location": {"line": 139, "column": 3}, "raw_value": "var(--spacing-sm)"}]}, {"rule_index": 13, "selector_text": ".candidate-name", "selectors": [".candidate-name"], "at_rule_context": [], "location": {"line": 142, "column": 1}, "declarations": [{"name": "font-size", "value": "var(--font-size-lg)", "important": false, "is_custom_property": false, "location": {"line": 143, "column": 3}, "raw_value": "var(--font-size-lg)"}, {"name": "font-weight", "value": "600", "important": false, "is_custom_property": false, "location": {"line": 144, "column": 3}, "raw_value": "600"}, {"name": "color", "value": "var(--color-brand-primary)", "important": false, "is_custom_property": false, "location": {"line": 145, "column": 3}, "raw_value": "var(--color-brand-primary)"}, {"name": "margin", "value": "0", "important": false, "is_custom_property": false, "location": {"line": 146, "column": 3}, "raw_value": "0"}]}, {"rule_index": 14, "selector_text": ".institution-tag", "selectors": [".institution-tag"], "at_rule_context": [], "location": {"line": 149, "column": 1}, "declarations": [{"name": "color", "value": "var(--color-neutral-text-muted)", "important": false, "is_custom_property": false, "location": {"line": 150, "column": 3}, "raw_value": "var(--color-neutral-text-muted)"}, {"name": "font-size", "value": "var(--font-size-sm)", "important": false, "is_custom_property": false, "location": {"line": 151, "column": 3}, "raw_value": "var(--font-size-sm)"}, {"name": "margin-top", "value": "var(--spacing-2xs)", "important": false, "is_custom_property": false, "location": {"line": 152, "column": 3}, "raw_value": "var(--spacing-2xs)"}]}, {"rule_index": 15, "selector_text": ".skill-list", "selectors": [".skill-list"], "at_rule_context": [], "location": {"line": 156, "column": 1}, "declarations": [{"name": "display", "value": "flex", "important": false, "is_custom_property": false, "location": {"line": 157, "column": 3}, "raw_value": "flex"}, {"name": "flex-wrap", "value": "wrap", "important": false, "is_custom_property": false, "location": {"line": 158, "column": 3}, "raw_value": "wrap"}, {"name": "gap", "value": "var(--spacing-xs)", "important": false, "is_custom_property": false, "location": {"line": 159, "column": 3}, "raw_value": "var(--spacing-xs)"}, {"name": "margin-top", "value": "var(--spacing-md)", "important": false, "is_custom_property": false, "location": {"line": 160, "column": 3}, "raw_value": "var(--spacing-md)"}]}, {"rule_index": 16, "selector_text": ".skill-chip", "selectors": [".skill-chip"], "at_rule_context": [], "location": {"line": 163, "column": 1}, "declarations": [{"name": "background-color", "value": "var(--color-neutral-bg)", "important": false, "is_custom_property": false, "location": {"line": 164, "column": 3}, "raw_value": "var(--color-neutral-bg)"}, {"name": "color", "value": "var(--color-brand-surface)", "important": false, "is_custom_property": false, "location": {"line": 165, "column": 3}, "raw_value": "var(--color-brand-surface)"}, {"name": "font-size", "value": "var(--font-size-xs)", "important": false, "is_custom_property": false, "location": {"line": 166, "column": 3}, "raw_value": "var(--font-size-xs)"}, {"name": "padding", "value": "var(--spacing-2xs) var(--spacing-sm)", "important": false, "is_custom_property": false, "location": {"line": 167, "column": 3}, "raw_value": "var(--spacing-2xs) var(--spacing-sm)"}, {"name": "border-radius", "value": "var(--radius-full)", "important": false, "is_custom_property": false, "location": {"line": 168, "column": 3}, "raw_value": "var(--radius-full)"}, {"name": "border", "value": "1px solid var(--color-neutral-border)", "important": false, "is_custom_property": false, "location": {"line": 169, "column": 3}, "raw_value": "1px solid var(--color-neutral-border)"}]}, {"rule_index": 17, "selector_text": ".status-pill", "selectors": [".status-pill"], "at_rule_context": [], "location": {"line": 173, "column": 1}, "declarations": [{"name": "font-size", "value": "var(--font-size-xs)", "important": false, "is_custom_property": false, "location": {"line": 174, "column": 3}, "raw_value": "var(--font-size-xs)"}, {"name": "font-weight", "value": "600", "important": false, "is_custom_property": false, "location": {"line": 175, "column": 3}, "raw_value": "600"}, {"name": "padding", "value": "var(--spacing-2xs) var(--spacing-xs)", "important": false, "is_custom_property": false, "location": {"line": 176, "column": 3}, "raw_value": "var(--spacing-2xs) var(--spacing-xs)"}, {"name": "border-radius", "value": "var(--radius-sm)", "important": false, "is_custom_property": false, "location": {"line": 177, "column": 3}, "raw_value": "var(--radius-sm)"}]}, {"rule_index": 18, "selector_text": ".status-shortlisted", "selectors": [".status-shortlisted"], "at_rule_context": [], "location": {"line": 180, "column": 1}, "declarations": [{"name": "background-color", "value": "#e0f2fe", "important": false, "is_custom_property": false, "location": {"line": 181, "column": 3}, "raw_value": "#e0f2fe"}, {"name": "color", "value": "var(--color-status-shortlisted)", "important": false, "is_custom_property": false, "location": {"line": 182, "column": 3}, "raw_value": "var(--color-status-shortlisted)"}]}, {"rule_index": 19, "selector_text": ".status-interviewing", "selectors": [".status-interviewing"], "at_rule_context": [], "location": {"line": 185, "column": 1}, "declarations": [{"name": "background-color", "value": "#fef3c7", "important": false, "is_custom_property": false, "location": {"line": 186, "column": 3}, "raw_value": "#fef3c7"}, {"name": "color", "value": "var(--color-status-interviewing)", "important": false, "is_custom_property": false, "location": {"line": 187, "column": 3}, "raw_value": "var(--color-status-interviewing)"}]}, {"rule_index": 20, "selector_text": ".btn-action", "selectors": [".btn-action"], "at_rule_context": [], "location": {"line": 191, "column": 1}, "declarations": [{"name": "font-family", "value": "var(--font-family-base)", "important": false, "is_custom_property": false, "location": {"line": 192, "column": 3}, "raw_value": "var(--font-family-base)"}, {"name": "font-size", "value": "var(--font-size-sm)", "important": false, "is_custom_property": false, "location": {"line": 193, "column": 3}, "raw_value": "var(--font-size-sm)"}, {"name": "font-weight", "value": "600", "important": false, "is_custom_property": false, "location": {"line": 194, "column": 3}, "raw_value": "600"}, {"name": "padding", "value": "var(--spacing-xs) var(--spacing-md)", "important": false, "is_custom_property": false, "location": {"line": 195, "column": 3}, "raw_value": "var(--spacing-xs) var(--spacing-md)"}, {"name": "border-radius", "value": "var(--radius-sm)", "important": false, "is_custom_property": false, "location": {"line": 196, "column": 3}, "raw_value": "var(--radius-sm)"}, {"name": "cursor", "value": "pointer", "important": false, "is_custom_property": false, "location": {"line": 197, "column": 3}, "raw_value": "pointer"}, {"name": "border", "value": "1px solid transparent", "important": false, "is_custom_property": false, "location": {"line": 198, "column": 3}, "raw_value": "1px solid transparent"}]}, {"rule_index": 21, "selector_text": ".btn-primary", "selectors": [".btn-primary"], "at_rule_context": [], "location": {"line": 201, "column": 1}, "declarations": [{"name": "background-color", "value": "var(--color-accent-emerald)", "important": false, "is_custom_property": false, "location": {"line": 202, "column": 3}, "raw_value": "var(--color-accent-emerald)"}, {"name": "color", "value": "var(--color-neutral-card)", "important": false, "is_custom_property": false, "location": {"line": 203, "column": 3}, "raw_value": "var(--color-neutral-card)"}]}, {"rule_index": 22, "selector_text": ".btn-primary:hover", "selectors": [".btn-primary:hover"], "at_rule_context": [], "location": {"line": 206, "column": 1}, "declarations": [{"name": "background-color", "value": "var(--color-accent-emerald-dark)", "important": false, "is_custom_property": false, "location": {"line": 207, "column": 3}, "raw_value": "var(--color-accent-emerald-dark)"}]}, {"rule_index": 23, "selector_text": ".candidate-grid", "selectors": [".candidate-grid"], "at_rule_context": ["@media (min-width: 768px)"], "location": {"line": 212, "column": 3}, "declarations": [{"name": "grid-template-columns", "value": "repeat(2, 1fr)", "important": false, "is_custom_property": false, "location": {"line": 213, "column": 5}, "raw_value": "repeat(2, 1fr)"}]}, {"rule_index": 24, "selector_text": ".candidate-grid", "selectors": [".candidate-grid"], "at_rule_context": ["@media (min-width: 1024px)"], "location": {"line": 218, "column": 3}, "declarations": [{"name": "grid-template-columns", "value": "repeat(3, 1fr)", "important": false, "is_custom_property": false, "location": {"line": 219, "column": 5}, "raw_value": "repeat(3, 1fr)"}]}, {"rule_index": 25, "selector_text": ".talent-container", "selectors": [".talent-container"], "at_rule_context": ["@media (min-width: 1024px)"], "location": {"line": 221, "column": 3}, "declarations": [{"name": "padding", "value": "var(--spacing-xl)", "important": false, "is_custom_property": false, "location": {"line": 222, "column": 5}, "raw_value": "var(--spacing-xl)"}]}]}, "design_tokens": {"colors": [{"category": "color", "raw_value": "#1e293b", "normalized_value": "#1e293b", "count": 2, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-brand-surface", "location": {"line": 10, "column": 3}}, {"selector": ":root", "property_name": "--color-neutral-text-main", "location": {"line": 18, "column": 3}}]}, {"category": "color", "raw_value": "#059669", "normalized_value": "#059669", "count": 2, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-accent-emerald-dark", "location": {"line": 12, "column": 3}}, {"selector": ":root", "property_name": "--color-status-offered", "location": {"line": 24, "column": 3}}]}, {"category": "color", "raw_value": "#0f172a", "normalized_value": "#0f172a", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-brand-primary", "location": {"line": 9, "column": 3}}]}, {"category": "color", "raw_value": "#10b981", "normalized_value": "#10b981", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-accent-emerald", "location": {"line": 11, "column": 3}}]}, {"category": "color", "raw_value": "#f8fafc", "normalized_value": "#f8fafc", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-neutral-bg", "location": {"line": 15, "column": 3}}]}, {"category": "color", "raw_value": "#ffffff", "normalized_value": "#ffffff", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-neutral-card", "location": {"line": 16, "column": 3}}]}, {"category": "color", "raw_value": "#e2e8f0", "normalized_value": "#e2e8f0", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-neutral-border", "location": {"line": 17, "column": 3}}]}, {"category": "color", "raw_value": "#64748b", "normalized_value": "#64748b", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-neutral-text-muted", "location": {"line": 19, "column": 3}}]}, {"category": "color", "raw_value": "#0284c7", "normalized_value": "#0284c7", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-status-shortlisted", "location": {"line": 22, "column": 3}}]}, {"category": "color", "raw_value": "#d97706", "normalized_value": "#d97706", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-status-interviewing", "location": {"line": 23, "column": 3}}]}, {"category": "color", "raw_value": "rgba(0, 0, 0, 0.05)", "normalized_value": "rgba(0,0,0,0.05)", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--shadow-subtle", "location": {"line": 48, "column": 3}}]}, {"category": "color", "raw_value": "rgba(0, 0, 0, 0.07)", "normalized_value": "rgba(0,0,0,0.07)", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--shadow-card", "location": {"line": 49, "column": 3}}]}, {"category": "color", "raw_value": "#e0f2fe", "normalized_value": "#e0f2fe", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ".status-shortlisted", "property_name": "background-color", "location": {"line": 181, "column": 3}}]}, {"category": "color", "raw_value": "#fef3c7", "normalized_value": "#fef3c7", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ".status-interviewing", "property_name": "background-color", "location": {"line": 186, "column": 3}}]}, {"category": "color", "raw_value": "transparent", "normalized_value": "transparent", "count": 1, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ".btn-action", "property_name": "border", "location": {"line": 198, "column": 3}}]}], "font_families": [], "font_sizes": [], "spacings": [{"category": "spacing", "raw_value": "0", "normalized_value": "0", "count": 4, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": "body", "property_name": "margin", "location": {"line": 57, "column": 3}}, {"selector": "body", "property_name": "padding", "location": {"line": 58, "column": 3}}, {"selector": ".brand-title", "property_name": "margin", "location": {"line": 76, "column": 3}}, {"selector": ".candidate-name", "property_name": "margin", "location": {"line": 146, "column": 3}}]}, {"category": "spacing", "raw_value": "auto", "normalized_value": "auto", "count": 2, "is_custom_property": false, "is_token_candidate": false, "occurrences": [{"selector": ".talent-container", "property_name": "margin-left", "location": {"line": 90, "column": 3}}, {"selector": ".talent-container", "property_name": "margin-right", "location": {"line": 91, "column": 3}}]}], "border_radii": [], "custom_properties": [{"category": "custom_property", "raw_value": "--color-brand-primary: #0f172a", "normalized_value": "--color-brand-primary: #0f172a", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-brand-primary", "location": {"line": 9, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-brand-surface: #1e293b", "normalized_value": "--color-brand-surface: #1e293b", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-brand-surface", "location": {"line": 10, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-accent-emerald: #10b981", "normalized_value": "--color-accent-emerald: #10b981", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-accent-emerald", "location": {"line": 11, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-accent-emerald-dark: #059669", "normalized_value": "--color-accent-emerald-dark: #059669", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-accent-emerald-dark", "location": {"line": 12, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-neutral-bg: #f8fafc", "normalized_value": "--color-neutral-bg: #f8fafc", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-neutral-bg", "location": {"line": 15, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-neutral-card: #ffffff", "normalized_value": "--color-neutral-card: #ffffff", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-neutral-card", "location": {"line": 16, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-neutral-border: #e2e8f0", "normalized_value": "--color-neutral-border: #e2e8f0", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-neutral-border", "location": {"line": 17, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-neutral-text-main: #1e293b", "normalized_value": "--color-neutral-text-main: #1e293b", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-neutral-text-main", "location": {"line": 18, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-neutral-text-muted: #64748b", "normalized_value": "--color-neutral-text-muted: #64748b", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-neutral-text-muted", "location": {"line": 19, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-status-shortlisted: #0284c7", "normalized_value": "--color-status-shortlisted: #0284c7", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-status-shortlisted", "location": {"line": 22, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-status-interviewing: #d97706", "normalized_value": "--color-status-interviewing: #d97706", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-status-interviewing", "location": {"line": 23, "column": 3}}]}, {"category": "custom_property", "raw_value": "--color-status-offered: #059669", "normalized_value": "--color-status-offered: #059669", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--color-status-offered", "location": {"line": 24, "column": 3}}]}, {"category": "custom_property", "raw_value": "--font-family-base: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif", "normalized_value": "--font-family-base: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--font-family-base", "location": {"line": 27, "column": 3}}]}, {"category": "custom_property", "raw_value": "--font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace", "normalized_value": "--font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--font-family-mono", "location": {"line": 28, "column": 3}}]}, {"category": "custom_property", "raw_value": "--font-size-xs: 0.75rem", "normalized_value": "--font-size-xs: 0.75rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--font-size-xs", "location": {"line": 29, "column": 3}}]}, {"category": "custom_property", "raw_value": "--font-size-sm: 0.875rem", "normalized_value": "--font-size-sm: 0.875rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--font-size-sm", "location": {"line": 30, "column": 3}}]}, {"category": "custom_property", "raw_value": "--font-size-base: 1rem", "normalized_value": "--font-size-base: 1rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--font-size-base", "location": {"line": 31, "column": 3}}]}, {"category": "custom_property", "raw_value": "--font-size-lg: 1.125rem", "normalized_value": "--font-size-lg: 1.125rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--font-size-lg", "location": {"line": 32, "column": 3}}]}, {"category": "custom_property", "raw_value": "--font-size-xl: 1.5rem", "normalized_value": "--font-size-xl: 1.5rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--font-size-xl", "location": {"line": 33, "column": 3}}]}, {"category": "custom_property", "raw_value": "--spacing-2xs: 0.25rem", "normalized_value": "--spacing-2xs: 0.25rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--spacing-2xs", "location": {"line": 36, "column": 3}}]}, {"category": "custom_property", "raw_value": "--spacing-xs: 0.5rem", "normalized_value": "--spacing-xs: 0.5rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--spacing-xs", "location": {"line": 37, "column": 3}}]}, {"category": "custom_property", "raw_value": "--spacing-sm: 0.75rem", "normalized_value": "--spacing-sm: 0.75rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--spacing-sm", "location": {"line": 38, "column": 3}}]}, {"category": "custom_property", "raw_value": "--spacing-md: 1rem", "normalized_value": "--spacing-md: 1rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--spacing-md", "location": {"line": 39, "column": 3}}]}, {"category": "custom_property", "raw_value": "--spacing-lg: 1.5rem", "normalized_value": "--spacing-lg: 1.5rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--spacing-lg", "location": {"line": 40, "column": 3}}]}, {"category": "custom_property", "raw_value": "--spacing-xl: 2rem", "normalized_value": "--spacing-xl: 2rem", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--spacing-xl", "location": {"line": 41, "column": 3}}]}, {"category": "custom_property", "raw_value": "--radius-sm: 4px", "normalized_value": "--radius-sm: 4px", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--radius-sm", "location": {"line": 44, "column": 3}}]}, {"category": "custom_property", "raw_value": "--radius-md: 8px", "normalized_value": "--radius-md: 8px", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--radius-md", "location": {"line": 45, "column": 3}}]}, {"category": "custom_property", "raw_value": "--radius-lg: 12px", "normalized_value": "--radius-lg: 12px", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--radius-lg", "location": {"line": 46, "column": 3}}]}, {"category": "custom_property", "raw_value": "--radius-full: 9999px", "normalized_value": "--radius-full: 9999px", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--radius-full", "location": {"line": 47, "column": 3}}]}, {"category": "custom_property", "raw_value": "--shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05)", "normalized_value": "--shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05)", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--shadow-subtle", "location": {"line": 48, "column": 3}}]}, {"category": "custom_property", "raw_value": "--shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.07)", "normalized_value": "--shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.07)", "count": 1, "is_custom_property": true, "is_token_candidate": false, "occurrences": [{"selector": ":root", "property_name": "--shadow-card", "location": {"line": 49, "column": 3}}]}]}, "token_candidates": [], "quality_insights": []};
+        const CLEAN_CSS_TEXT = "/* ==========================================================================\n   ACADEMIC TALENT MANAGEMENT DASHBOARD - CLEAN DESIGN SYSTEM\n   Standardized CSS utilizing modern custom properties, responsive media queries,\n   and clean semantic component architecture.\n   ========================================================================== */\n\n:root {\n  /* Brand Palette */\n  --color-brand-primary: #0f172a;\n  --color-brand-surface: #1e293b;\n  --color-accent-emerald: #10b981;\n  --color-accent-emerald-dark: #059669;\n\n  /* Neutral Surface & Text */\n  --color-neutral-bg: #f8fafc;\n  --color-neutral-card: #ffffff;\n  --color-neutral-border: #e2e8f0;\n  --color-neutral-text-main: #1e293b;\n  --color-neutral-text-muted: #64748b;\n\n  /* Status Colors */\n  --color-status-shortlisted: #0284c7;\n  --color-status-interviewing: #d97706;\n  --color-status-offered: #059669;\n\n  /* Typography Scale */\n  --font-family-base: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;\n  --font-size-xs: 0.75rem;\n  --font-size-sm: 0.875rem;\n  --font-size-base: 1rem;\n  --font-size-lg: 1.125rem;\n  --font-size-xl: 1.5rem;\n\n  /* Spacing Scale */\n  --spacing-2xs: 0.25rem;\n  --spacing-xs: 0.5rem;\n  --spacing-sm: 0.75rem;\n  --spacing-md: 1rem;\n  --spacing-lg: 1.5rem;\n  --spacing-xl: 2rem;\n\n  /* Geometry & Elevation */\n  --radius-sm: 4px;\n  --radius-md: 8px;\n  --radius-lg: 12px;\n  --radius-full: 9999px;\n  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05);\n  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.07);\n}\n\n/* Base resets & layout */\nbody {\n  font-family: var(--font-family-base);\n  background-color: var(--color-neutral-bg);\n  color: var(--color-neutral-text-main);\n  margin: 0;\n  padding: 0;\n  line-height: 1.5;\n}\n\n/* Top Navigation Bar */\n.dashboard-header {\n  background-color: var(--color-brand-primary);\n  border-bottom: 2px solid var(--color-accent-emerald);\n  padding: var(--spacing-sm) var(--spacing-lg);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.brand-title {\n  color: var(--color-neutral-card);\n  font-size: var(--font-size-lg);\n  font-weight: 700;\n  margin: 0;\n}\n\n.nav-counter {\n  background-color: var(--color-accent-emerald);\n  color: var(--color-neutral-card);\n  font-size: var(--font-size-xs);\n  padding: var(--spacing-2xs) var(--spacing-xs);\n  border-radius: var(--radius-full);\n}\n\n/* Main Dashboard Canvas */\n.talent-container {\n  max-width: 1200px;\n  margin-left: auto;\n  margin-right: auto;\n  padding: var(--spacing-lg);\n}\n\n/* Filter Controls */\n.filter-toolbar {\n  background-color: var(--color-neutral-card);\n  border: 1px solid var(--color-neutral-border);\n  border-radius: var(--radius-md);\n  padding: var(--spacing-md);\n  box-shadow: var(--shadow-subtle);\n  display: flex;\n  gap: var(--spacing-md);\n  margin-bottom: var(--spacing-xl);\n}\n\n.search-input {\n  font-family: var(--font-family-base);\n  font-size: var(--font-size-sm);\n  border: 1px solid var(--color-neutral-border);\n  border-radius: var(--radius-sm);\n  padding: var(--spacing-xs) var(--spacing-sm);\n  flex-grow: 1;\n}\n\n/* Candidate Grid */\n.candidate-grid {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: var(--spacing-lg);\n}\n\n.candidate-card {\n  background-color: var(--color-neutral-card);\n  border: 1px solid var(--color-neutral-border);\n  border-radius: var(--radius-lg);\n  padding: var(--spacing-lg);\n  box-shadow: var(--shadow-card);\n}\n\n.candidate-card:hover {\n  border-color: var(--color-accent-emerald);\n}\n\n.candidate-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: var(--spacing-sm);\n}\n\n.candidate-name {\n  font-size: var(--font-size-lg);\n  font-weight: 600;\n  color: var(--color-brand-primary);\n  margin: 0;\n}\n\n.institution-tag {\n  color: var(--color-neutral-text-muted);\n  font-size: var(--font-size-sm);\n  margin-top: var(--spacing-2xs);\n}\n\n/* Skills Chip List */\n.skill-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: var(--spacing-xs);\n  margin-top: var(--spacing-md);\n}\n\n.skill-chip {\n  background-color: var(--color-neutral-bg);\n  color: var(--color-brand-surface);\n  font-size: var(--font-size-xs);\n  padding: var(--spacing-2xs) var(--spacing-sm);\n  border-radius: var(--radius-full);\n  border: 1px solid var(--color-neutral-border);\n}\n\n/* Status Badges */\n.status-pill {\n  font-size: var(--font-size-xs);\n  font-weight: 600;\n  padding: var(--spacing-2xs) var(--spacing-xs);\n  border-radius: var(--radius-sm);\n}\n\n.status-shortlisted {\n  background-color: #e0f2fe;\n  color: var(--color-status-shortlisted);\n}\n\n.status-interviewing {\n  background-color: #fef3c7;\n  color: var(--color-status-interviewing);\n}\n\n/* Action Buttons */\n.btn-action {\n  font-family: var(--font-family-base);\n  font-size: var(--font-size-sm);\n  font-weight: 600;\n  padding: var(--spacing-xs) var(--spacing-md);\n  border-radius: var(--radius-sm);\n  cursor: pointer;\n  border: 1px solid transparent;\n}\n\n.btn-primary {\n  background-color: var(--color-accent-emerald);\n  color: var(--color-neutral-card);\n}\n\n.btn-primary:hover {\n  background-color: var(--color-accent-emerald-dark);\n}\n\n/* Responsive Breakpoints */\n@media (min-width: 768px) {\n  .candidate-grid {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n\n@media (min-width: 1024px) {\n  .candidate-grid {\n    grid-template-columns: repeat(3, 1fr);\n  }\n  .talent-container {\n    padding: var(--spacing-xl);\n  }\n}\n";
+        const MESSY_CSS_TEXT = "/* ==========================================================================\n   ACADEMIC TALENT MANAGEMENT - LEGACY / UNMAINTAINED STYLESHEET\n   Contains intentional design inconsistencies, repeated declarations,\n   hardcoded color repetitions, and specificity debt via !important.\n   ========================================================================== */\n\n/* Top level un-tokenized header */\n.header-bar {\n  background-color: #1e3a8a;\n  color: #ffffff;\n  padding: 13px 24px;\n  border-bottom: 2px solid #ef4444;\n}\n\n/* Nav links with specificity override */\n.header-bar .nav-item {\n  color: #ffffff;\n  font-size: 14px;\n  margin-right: 13px;\n  text-decoration: none !important;\n}\n\n/* Sidebar with duplicate declaration */\n.dashboard-sidebar {\n  width: 260px;\n  background-color: #1e3a8a;\n  display: block;\n  padding: 13px;\n  /* Redundant exact duplicate declaration below */\n  display: block;\n  border-right: 1px solid #d1d5db;\n}\n\n/* Candidate Card with overwritten property */\n.candidate-card-legacy {\n  background-color: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  padding: 16px;\n  margin-bottom: 20px;\n}\n\n.candidate-card-legacy .title {\n  /* Overwritten declaration: #1e3a8a immediately overridden by #374151 */\n  color: #1e3a8a;\n  font-size: 18px;\n  font-weight: bold;\n  color: #374151;\n}\n\n/* Hardcoded repeated badge colors and arbitrary spacing */\n.badge-urgent {\n  background-color: #ef4444 !important;\n  color: #ffffff;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  margin-left: 13px;\n}\n\n.badge-featured {\n  background-color: #1e3a8a;\n  color: #ffffff;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n\n/* Action button with excessive !important override */\n.btn-submit-override {\n  background-color: #1e3a8a !important;\n  color: #ffffff !important;\n  padding: 10px 20px !important;\n  border: none !important;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n/* Alert banner using undefined custom property */\n.system-notification {\n  background-color: #fef2f2;\n  border-left: 4px solid #ef4444;\n  /* Undefined variable reference below: --accent-glow was never declared */\n  box-shadow: 0 0 10px var(--accent-glow);\n  padding: 16px;\n  margin-top: 20px;\n}\n";
+
+        let currentData = INITIAL_REPORT;
+        let currentFilter = 'all';
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.innerText = msg;
+            t.style.display = 'block';
+            setTimeout(() => { t.style.display = 'none'; }, 2400);
+        }
+
+        function copyToClipboard(val) {
+            navigator.clipboard.writeText(val).then(() => {
+                showToast("Copied: " + val);
+            }).catch(() => {
+                showToast("Selected: " + val);
+            });
+        }
+
+        // Drag & Drop / File Upload Handler
+        const dropzone = document.getElementById('dropzone');
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropzone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.add('drag-over');
+            }, false);
+            window.addEventListener(eventName, (e) => {
+                e.preventDefault();
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropzone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.remove('drag-over');
+            }, false);
+            window.addEventListener(eventName, (e) => {
+                e.preventDefault();
+            }, false);
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            if (files && files.length > 0) {
+                processFile(files[0]);
+            }
+        });
+
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            if (files && files.length > 0) {
+                processFile(files[0]);
+            }
+        }
+
+        function processFile(file) {
+            if (!file.name.endsWith('.css') && file.type && !file.type.includes('css')) {
+                showToast("Please drop or choose a valid .css file!");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const content = evt.target.result;
+                document.getElementById('active-filename').innerText = file.name;
+                document.querySelectorAll('.preset-group .btn').forEach(b => b.classList.remove('btn-active'));
+                
+                // Update textarea if sandbox opened
+                document.getElementById('custom-css-input').value = content;
+                
+                // Run instant analysis
+                analyzeCssString(content, file.name);
+                showToast("Loaded & analyzed " + file.name + " (" + (file.size / 1024).toFixed(1) + " KB)!");
+            };
+            reader.readAsText(file);
+        }
+
+        function toggleSandbox() {
+            const p = document.getElementById('sandbox-panel');
+            p.classList.toggle('active');
+            if (p.classList.contains('active')) {
+                const ta = document.getElementById('custom-css-input');
+                if (!ta.value.trim()) {
+                    ta.value = CLEAN_CSS_TEXT;
+                }
+            }
+        }
+
+        function clearSandbox() {
+            document.getElementById('custom-css-input').value = "";
+        }
+
+        function loadPreset(name) {
+            document.querySelectorAll('.preset-group .btn').forEach(b => b.classList.remove('btn-active'));
+            if (name === 'clean') {
+                document.getElementById('preset-clean').classList.add('btn-active');
+                document.getElementById('active-filename').innerText = 'sample_clean.css';
+                document.getElementById('sandbox-panel').classList.remove('active');
+                analyzeCssString(CLEAN_CSS_TEXT, 'sample_clean.css');
+            } else if (name === 'messy') {
+                document.getElementById('preset-messy').classList.add('btn-active');
+                document.getElementById('active-filename').innerText = 'sample_messy.css';
+                document.getElementById('sandbox-panel').classList.remove('active');
+                analyzeCssString(MESSY_CSS_TEXT, 'sample_messy.css');
+            } else if (name === 'custom') {
+                document.getElementById('preset-custom').classList.add('btn-active');
+                document.getElementById('active-filename').innerText = 'custom_playground.css';
+                document.getElementById('sandbox-panel').classList.add('active');
+                const ta = document.getElementById('custom-css-input');
+                if (!ta.value.trim()) ta.value = CLEAN_CSS_TEXT;
+            }
+        }
+
+        function runCustomAnalysis() {
+            const css = document.getElementById('custom-css-input').value;
+            analyzeCssString(css, 'custom_playground.css');
+            showToast("Custom CSS Analyzed!");
+        }
+
+        function reanalyzeCurrent() {
+            const activePreset = document.querySelector('.preset-group .btn-active');
+            if (activePreset && activePreset.id === 'preset-messy') {
+                analyzeCssString(MESSY_CSS_TEXT, 'sample_messy.css');
+            } else if (activePreset && activePreset.id === 'preset-custom') {
+                runCustomAnalysis();
+            } else {
+                analyzeCssString(CLEAN_CSS_TEXT, 'sample_clean.css');
+            }
+            showToast("Report Refreshed!");
+        }
+
+        /* Client-side Lightweight Parser */
+        function analyzeCssString(cssText, filename) {
+            // Clean comments
+            const cleaned = cssText.replace(/\/\*[\s\S]*?\*\//g, "");
+            
+            // Extract rules
+            const ruleRegex = /([^{]+)\{([^}]+)\}/g;
+            const rules = [];
+            let match;
+            let totalDecls = 0;
+            let importantCount = 0;
+            const propFreq = {};
+            const colorTokens = {};
+            const dimensionTokens = {};
+            const customProps = {};
+            const literalOccurrences = {};
+            const findings = [];
+
+            while ((match = ruleRegex.exec(cleaned)) !== null) {
+                const selector = match[1].trim();
+                const body = match[2].trim();
+                if (!selector || selector.startsWith('@keyframes')) continue;
+
+                const decls = [];
+                const seenPropsInRule = {};
+
+                const declPairs = body.split(';');
+                for (const pair of declPairs) {
+                    const colonIdx = pair.indexOf(':');
+                    if (colonIdx === -1) continue;
+
+                    const prop = pair.slice(0, colonIdx).trim().toLowerCase();
+                    let val = pair.slice(colonIdx + 1).trim();
+                    if (!prop || !val) continue;
+
+                    const isImportant = val.includes('!important');
+                    if (isImportant) {
+                        val = val.replace('!important', '').trim();
+                        importantCount++;
+                    }
+
+                    totalDecls++;
+                    propFreq[prop] = (propFreq[prop] || 0) + 1;
+
+                    // Track Custom properties
+                    if (prop.startsWith('--')) {
+                        customProps[prop] = { value: val, count: (customProps[prop]?.count || 0) + 1 };
+                    }
+
+                    // Track colors
+                    const hexMatches = val.match(/#[0-9a-fA-F]{3,8}/g) || [];
+                    for (const h of hexMatches) {
+                        const lowHex = h.toLowerCase();
+                        colorTokens[lowHex] = (colorTokens[lowHex] || 0) + 1;
+                        literalOccurrences[lowHex] = (literalOccurrences[lowHex] || 0) + 1;
+                    }
+
+                    // Track dimensions
+                    const dimMatches = val.match(/\b\d+(?:\.\d+)?(?:px|rem|em)\b/g) || [];
+                    for (const d of dimMatches) {
+                        dimensionTokens[d] = (dimensionTokens[d] || 0) + 1;
+                        literalOccurrences[d] = (literalOccurrences[d] || 0) + 1;
+                    }
+
+                    // Check for duplicate declarations
+                    if (seenPropsInRule[prop] !== undefined) {
+                        if (seenPropsInRule[prop] === val) {
+                            findings.push({
+                                check_id: "duplicate_declaration",
+                                severity: "warning",
+                                title: "Exact Duplicate Declaration",
+                                rule_selector: selector,
+                                property_name: prop,
+                                explanation: `Property '` + prop + `: ` + val + `' is repeated identically within '` + selector + `'. Redundant bytecode waste.`,
+                                suggested_improvement: `Remove the duplicate declaration to minimize CSS payload size.`
+                            });
+                        } else {
+                            findings.push({
+                                check_id: "overwritten_declaration",
+                                severity: "warning",
+                                title: "Overwritten Property Declaration",
+                                rule_selector: selector,
+                                property_name: prop,
+                                explanation: `Declaration '` + prop + `: ` + seenPropsInRule[prop] + `' is immediately overwritten by '` + prop + `: ` + val + `'.`,
+                                suggested_improvement: `Consolidate to the final desired value unless providing an intentional legacy fallback.`
+                            });
+                        }
+                    }
+                    seenPropsInRule[prop] = val;
+
+                    decls.push({ name: prop, value: val, important: isImportant });
+                }
+
+                if (decls.length > 0) {
+                    rules.push({ selector_text: selector, declarations: decls });
+                }
+            }
+
+            // Check !important
+            if (importantCount > 0) {
+                findings.push({
+                    check_id: "specificity_debt",
+                    severity: "warning",
+                    title: `Specificity Debt: ` + importantCount + ` !important Flag(s) Detected`,
+                    rule_selector: "Multiple selectors",
+                    property_name: "!important",
+                    explanation: `Stylesheets using !important break normal cascade specificity and complicate responsive styling overrides.`,
+                    suggested_improvement: `Refactor CSS specificity using BEM notation or CSS layers (@layer) rather than brute-force !important.`
+                });
+            }
+
+            // Token candidates >= 3 repeats
+            const tokenCandidates = [];
+            for (const [lit, count] of Object.entries(literalOccurrences)) {
+                if (count >= 3 && !lit.startsWith('--')) {
+                    tokenCandidates.push({
+                        raw_value: lit,
+                        category: lit.startsWith('#') ? 'color' : 'dimension',
+                        count: count
+                    });
+                }
+            }
+
+            const uniqueProps = Object.keys(propFreq).length;
+            const updatedData = {
+                metadata: { file_path: filename },
+                stylesheet: {
+                    total_style_rules: rules.length,
+                    total_declarations: totalDecls,
+                    unique_property_count: uniqueProps,
+                    rules: rules
+                },
+                stats: {
+                    total_rules: rules.length,
+                    total_declarations: totalDecls,
+                    unique_properties: uniqueProps,
+                    important_count: importantCount
+                },
+                design_tokens: {
+                    color: Object.entries(colorTokens).map(([k, v]) => ({ raw_value: k, normalized_value: k, count: v })),
+                    dimension: Object.entries(dimensionTokens).map(([k, v]) => ({ raw_value: k, normalized_value: k, count: v })),
+                    custom_property: Object.entries(customProps).map(([k, v]) => ({ raw_value: k, normalized_value: v.value, count: v.count }))
+                },
+                token_candidates: tokenCandidates,
+                quality_insights: findings
+            };
+
+            currentData = updatedData;
+            renderReport(updatedData);
+        }
+
+        function renderReport(data) {
+            const stats = data.stats || {};
+            const st = data.stylesheet || {};
+
+            // Update stats
+            document.getElementById('stat-rules').innerText = stats.total_rules || st.total_style_rules || 0;
+            document.getElementById('stat-decls').innerText = stats.total_declarations || st.total_declarations || 0;
+            document.getElementById('stat-props').innerText = stats.unique_properties || st.unique_property_count || 0;
+            
+            const impElem = document.getElementById('stat-important');
+            const impCount = stats.important_count || 0;
+            impElem.innerText = impCount;
+            impElem.style.color = impCount > 0 ? 'var(--accent-coral)' : 'var(--accent-emerald)';
+
+            const candList = data.token_candidates || [];
+            document.getElementById('stat-candidates').innerText = candList.length;
+
+            const findings = data.quality_insights || [];
+            const findElem = document.getElementById('stat-findings');
+            findElem.innerText = findings.length;
+            findElem.style.color = findings.length > 0 ? 'var(--accent-amber)' : 'var(--accent-emerald)';
+
+            // Render Colors
+            const colors = (data.design_tokens && data.design_tokens.color) || [];
+            const swatchesCont = document.getElementById('swatches-container');
+            if (colors.length === 0) {
+                swatchesCont.innerHTML = '<p class="empty-state">No color tokens detected.</p>';
+            } else {
+                swatchesCont.innerHTML = colors.slice(0, 18).map(c => `
+                    <div class="token-chip" onclick="filterByColor('${c.raw_value}')" title="Click to filter rules using ${c.raw_value}">
+                        <span class="color-preview" style="background-color: ${c.raw_value};"></span>
+                        <div class="token-chip-info">
+                            <span class="token-val">${c.raw_value}</span>
+                            <span class="token-count">${c.count}x</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Render Spacing
+            const dims = (data.design_tokens && data.design_tokens.dimension) || [];
+            const spacingCont = document.getElementById('spacing-container');
+            if (dims.length === 0) {
+                spacingCont.innerHTML = '<p class="empty-state">No spacing tokens detected.</p>';
+            } else {
+                spacingCont.innerHTML = dims.slice(0, 16).map(d => `
+                    <div class="metric-pill" onclick="filterRulesByText('${d.raw_value}')" title="Click to filter rules">
+                        <span class="pill-val">${d.raw_value}</span>
+                        <span class="pill-count">${d.count}x</span>
+                    </div>
+                `).join('');
+            }
+
+            // Render Custom Properties
+            const cp = (data.design_tokens && data.design_tokens.custom_property) || [];
+            const cpBody = document.getElementById('custom-props-body');
+            if (cp.length === 0) {
+                cpBody.innerHTML = '<tr><td colspan="3" class="empty-state">No CSS custom properties defined.</td></tr>';
+            } else {
+                cpBody.innerHTML = cp.slice(0, 12).map(item => `
+                    <tr>
+                        <td><code>${item.raw_value}</code></td>
+                        <td><code>${item.normalized_value}</code></td>
+                        <td><span class="badge badge-neutral">${item.count} ref</span></td>
+                    </tr>
+                `).join('');
+            }
+
+            // Render Token Candidates
+            const candBody = document.getElementById('candidates-body');
+            if (candList.length === 0) {
+                candBody.innerHTML = '<tr><td colspan="4" class="empty-state">Zero un-tokenized literal repetitions found. Clean design tokens!</td></tr>';
+            } else {
+                candBody.innerHTML = candList.slice(0, 8).map(cand => `
+                    <tr>
+                        <td><code>${cand.raw_value}</code></td>
+                        <td><span class="badge badge-accent">${cand.category}</span></td>
+                        <td><span class="badge badge-coral">${cand.count}x repeated</span></td>
+                        <td class="text-faint">Reusable token candidate</td>
+                    </tr>
+                `).join('');
+            }
+
+            // Render Findings
+            renderFindingsList(findings);
+
+            // Render Rules
+            renderRulesList(st.rules || []);
+        }
+
+        function renderFindingsList(findings) {
+            const cont = document.getElementById('findings-container');
+            if (!findings || findings.length === 0) {
+                cont.innerHTML = '<div class="finding-card-clean"><p>Zero quality or specificity debt issues detected. Excellent stylesheet hygiene!</p></div>';
+                return;
+            }
+
+            const filtered = currentFilter === 'all' ? findings : findings.filter(f => f.severity === currentFilter);
+            if (filtered.length === 0) {
+                cont.innerHTML = '<p class="empty-state">No findings matching this filter.</p>';
+                return;
+            }
+
+            cont.innerHTML = filtered.map(f => {
+                const sev = f.severity || 'warning';
+                const badgeCls = sev === 'warning' ? 'badge-amber' : (sev === 'info' ? 'badge-emerald' : 'badge-coral');
+                return `
+                    <div class="finding-card severity-${sev}">
+                        <div class="finding-header">
+                            <div class="finding-title-group">
+                                <span class="badge ${badgeCls}">${sev.toUpperCase()}</span>
+                                <h4 class="finding-title">${f.title}</h4>
+                            </div>
+                        </div>
+                        <div class="finding-meta">
+                            <span>Target: <code>${f.rule_selector}</code></span>
+                            <span>Property: <code>${f.property_name || 'N/A'}</code></span>
+                        </div>
+                        <p class="finding-desc">${f.explanation}</p>
+                        <div class="finding-action">
+                            <span class="action-label">Recommendation:</span>
+                            <span>${f.suggested_improvement}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterFindings(type, btn) {
+            currentFilter = type;
+            document.querySelectorAll('.filter-controls .btn').forEach(b => b.classList.remove('btn-active'));
+            if (btn) btn.classList.add('btn-active');
+            renderFindingsList(currentData.quality_insights || []);
+        }
+
+        function renderRulesList(rules) {
+            const cont = document.getElementById('rules-container');
+            if (!rules || rules.length === 0) {
+                cont.innerHTML = '<p class="empty-state">No rules found.</p>';
+                return;
+            }
+
+            cont.innerHTML = rules.slice(0, 40).map(r => {
+                const sel = r.selector_text || 'selector';
+                const decls = (r.declarations || []).map(d => `
+                    <div>  <span class="prop">${d.name}</span>: <span class="val">${d.value}</span>${d.important ? ' <span class="important-tag">!important</span>' : ''};</div>
+                `).join('');
+                return `
+                    <div class="rule-block" data-selector="${sel.toLowerCase()}" data-body="${decls.toLowerCase()}">
+                        <div class="rule-selector">${sel} &#123;</div>
+                        <div class="rule-body">${decls}</div>
+                        <div class="rule-close">&#125;</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterRules() {
+            const query = document.getElementById('rule-search').value.toLowerCase().trim();
+            const blocks = document.querySelectorAll('#rules-container .rule-block');
+            blocks.forEach(b => {
+                const sel = b.getAttribute('data-selector') || '';
+                const body = b.getAttribute('data-body') || '';
+                if (!query || sel.includes(query) || body.includes(query)) {
+                    b.style.display = 'block';
+                } else {
+                    b.style.display = 'none';
+                }
+            });
+        }
+
+        function filterByColor(hex) {
+            document.getElementById('rule-search').value = hex;
+            filterRules();
+            showToast("Filtered rules containing: " + hex);
+        }
+
+        function filterRulesByText(txt) {
+            document.getElementById('rule-search').value = txt;
+            filterRules();
+            showToast("Filtered rules containing: " + txt);
+        }
+
+        function resetRuleFilter() {
+            document.getElementById('rule-search').value = '';
+            filterRules();
+        }
+
+        // Initialize with default report data
+        window.addEventListener('DOMContentLoaded', () => {
+            renderReport(INITIAL_REPORT);
+        });
+    </script>
+</body>
+</html>

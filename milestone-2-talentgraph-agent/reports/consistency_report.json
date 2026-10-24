@@ -1,0 +1,1715 @@
+{
+  "metadata": {
+    "project": "TalentGraph Agent - Consistency Lab",
+    "timestamp": "2026-10-24T15:54:13.388237",
+    "execution_mode": "Deterministic Mock Engine",
+    "model": "gpt-4o-mini",
+    "temperature": 0.0,
+    "total_questions": 8
+  },
+  "metrics": {
+    "factual_agreement_rate_pct": 100.0,
+    "exact_text_match_rate_pct": 100.0,
+    "tool_sequence_agreement_rate_pct": 100.0,
+    "factual_agreements_count": 8,
+    "exact_text_matches_count": 8,
+    "mismatches_detected": 0
+  },
+  "evaluation_notes": "Consistency evaluation tests factual stability across repeated inferences under temperature 0. Because temperature 0 eliminates sampling variance but does not eliminate floating-point concurrency or alternate phrasing in LLMs, our evaluation normalizes structured facts (IDs, percentages, skills, and missing-data flags) to evaluate semantic and factual consistency.",
+  "detailed_results": [
+    {
+      "id": "Q1",
+      "category": "student_profile",
+      "question": "What skills does student S001 have?",
+      "run_1": {
+        "answer": "Student S001 (Aarav Sharma) possesses the following verified skills:\nPython, SQL, Machine Learning, Pandas, Scikit-Learn\n\nEducation: Bachelor of Technology in Computer Science at Delhi Technological University (2025)\nProjects: Predictive Customer Churn Model; SQL Sales Analytics Portal\n\nSources:\nstudents.json / S001",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "get_student_profile",
+            "arguments": {
+              "student_id": "S001"
+            },
+            "result": {
+              "status": "found",
+              "student_id": "S001",
+              "name": "Aarav Sharma",
+              "education": {
+                "degree": "Bachelor of Technology in Computer Science",
+                "institution": "Delhi Technological University",
+                "graduation_year": 2025
+              },
+              "skills": [
+                "Python",
+                "SQL",
+                "Machine Learning",
+                "Pandas",
+                "Scikit-Learn"
+              ],
+              "projects": [
+                {
+                  "title": "Predictive Customer Churn Model",
+                  "description": "Built an end-to-end churn prediction pipeline using Random Forest and Pandas.",
+                  "technologies": [
+                    "Python",
+                    "Pandas",
+                    "Scikit-Learn"
+                  ]
+                },
+                {
+                  "title": "SQL Sales Analytics Portal",
+                  "description": "Designed relational schema and analytical queries for sales data reporting.",
+                  "technologies": [
+                    "SQL",
+                    "PostgreSQL"
+                  ]
+                }
+              ],
+              "source": "students.json / S001"
+            }
+          }
+        ],
+        "execution_time_seconds": 0.001,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "get_student_profile"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "run_2": {
+        "answer": "Student S001 (Aarav Sharma) possesses the following verified skills:\nPython, SQL, Machine Learning, Pandas, Scikit-Learn\n\nEducation: Bachelor of Technology in Computer Science at Delhi Technological University (2025)\nProjects: Predictive Customer Churn Model; SQL Sales Analytics Portal\n\nSources:\nstudents.json / S001",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "get_student_profile",
+            "arguments": {
+              "student_id": "S001"
+            },
+            "result": {
+              "status": "found",
+              "student_id": "S001",
+              "name": "Aarav Sharma",
+              "education": {
+                "degree": "Bachelor of Technology in Computer Science",
+                "institution": "Delhi Technological University",
+                "graduation_year": 2025
+              },
+              "skills": [
+                "Python",
+                "SQL",
+                "Machine Learning",
+                "Pandas",
+                "Scikit-Learn"
+              ],
+              "projects": [
+                {
+                  "title": "Predictive Customer Churn Model",
+                  "description": "Built an end-to-end churn prediction pipeline using Random Forest and Pandas.",
+                  "technologies": [
+                    "Python",
+                    "Pandas",
+                    "Scikit-Learn"
+                  ]
+                },
+                {
+                  "title": "SQL Sales Analytics Portal",
+                  "description": "Designed relational schema and analytical queries for sales data reporting.",
+                  "technologies": [
+                    "SQL",
+                    "PostgreSQL"
+                  ]
+                }
+              ],
+              "source": "students.json / S001"
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "get_student_profile"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "comparison": {
+        "facts_agreed": true,
+        "exact_text_match": true,
+        "tool_sequence_match": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "Q2",
+      "category": "internship_search",
+      "question": "Find internships requiring Python.",
+      "run_1": {
+        "answer": "Found 4 internship(s) requiring Python:\n- [I001] AI / Machine Learning Intern at Apex AI Labs (Required: Python, Machine Learning, Scikit-Learn, Docker)\n- [I002] Data Science & Analytics Intern at Quantum Analytics (Required: Python, SQL, Pandas, Data Visualization)\n- [I003] Backend Systems Intern at DataBridge Technologies (Required: Python, FastAPI, PostgreSQL, Docker)\n- [I004] Deep Learning & NLP Research Intern at NeuralText Research (Required: Python, PyTorch, NLP, Transformers, Deep Learning)\n\nSources:\ninternships.json / I001, internships.json / I002, internships.json / I003, internships.json / I004",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "search_internships",
+            "arguments": {
+              "skill": "Python"
+            },
+            "result": {
+              "status": "found",
+              "query_skill": "Python",
+              "matched_count": 4,
+              "matched_internships": [
+                {
+                  "internship_id": "I001",
+                  "role": "AI / Machine Learning Intern",
+                  "company": "Apex AI Labs",
+                  "required_skills": [
+                    "Python",
+                    "Machine Learning",
+                    "Scikit-Learn",
+                    "Docker"
+                  ],
+                  "description": "Develop, validate, and containerize supervised ML models for predictive talent analytics.",
+                  "source": "internships.json / I001"
+                },
+                {
+                  "internship_id": "I002",
+                  "role": "Data Science & Analytics Intern",
+                  "company": "Quantum Analytics",
+                  "required_skills": [
+                    "Python",
+                    "SQL",
+                    "Pandas",
+                    "Data Visualization"
+                  ],
+                  "description": "Analyze tabular time-series data, write complex analytical SQL queries, and construct automated dashboards.",
+                  "source": "internships.json / I002"
+                },
+                {
+                  "internship_id": "I003",
+                  "role": "Backend Systems Intern",
+                  "company": "DataBridge Technologies",
+                  "required_skills": [
+                    "Python",
+                    "FastAPI",
+                    "PostgreSQL",
+                    "Docker"
+                  ],
+                  "description": "Design asynchronous REST APIs, optimize relational database queries, and package services into Docker containers.",
+                  "source": "internships.json / I003"
+                },
+                {
+                  "internship_id": "I004",
+                  "role": "Deep Learning & NLP Research Intern",
+                  "company": "NeuralText Research",
+                  "required_skills": [
+                    "Python",
+                    "PyTorch",
+                    "NLP",
+                    "Transformers",
+                    "Deep Learning"
+                  ],
+                  "description": "Fine-tune transformer models for semantic search and clinical entity categorization.",
+                  "source": "internships.json / I004"
+                }
+              ],
+              "source": "internships.json"
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [],
+          "internship_ids": [
+            "I001",
+            "I002",
+            "I003",
+            "I004"
+          ],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "search_internships"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "internships.json / I004",
+            "internships.json / I003",
+            "internships.json / I001",
+            "internships.json / I002"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "run_2": {
+        "answer": "Found 4 internship(s) requiring Python:\n- [I001] AI / Machine Learning Intern at Apex AI Labs (Required: Python, Machine Learning, Scikit-Learn, Docker)\n- [I002] Data Science & Analytics Intern at Quantum Analytics (Required: Python, SQL, Pandas, Data Visualization)\n- [I003] Backend Systems Intern at DataBridge Technologies (Required: Python, FastAPI, PostgreSQL, Docker)\n- [I004] Deep Learning & NLP Research Intern at NeuralText Research (Required: Python, PyTorch, NLP, Transformers, Deep Learning)\n\nSources:\ninternships.json / I001, internships.json / I002, internships.json / I003, internships.json / I004",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "search_internships",
+            "arguments": {
+              "skill": "Python"
+            },
+            "result": {
+              "status": "found",
+              "query_skill": "Python",
+              "matched_count": 4,
+              "matched_internships": [
+                {
+                  "internship_id": "I001",
+                  "role": "AI / Machine Learning Intern",
+                  "company": "Apex AI Labs",
+                  "required_skills": [
+                    "Python",
+                    "Machine Learning",
+                    "Scikit-Learn",
+                    "Docker"
+                  ],
+                  "description": "Develop, validate, and containerize supervised ML models for predictive talent analytics.",
+                  "source": "internships.json / I001"
+                },
+                {
+                  "internship_id": "I002",
+                  "role": "Data Science & Analytics Intern",
+                  "company": "Quantum Analytics",
+                  "required_skills": [
+                    "Python",
+                    "SQL",
+                    "Pandas",
+                    "Data Visualization"
+                  ],
+                  "description": "Analyze tabular time-series data, write complex analytical SQL queries, and construct automated dashboards.",
+                  "source": "internships.json / I002"
+                },
+                {
+                  "internship_id": "I003",
+                  "role": "Backend Systems Intern",
+                  "company": "DataBridge Technologies",
+                  "required_skills": [
+                    "Python",
+                    "FastAPI",
+                    "PostgreSQL",
+                    "Docker"
+                  ],
+                  "description": "Design asynchronous REST APIs, optimize relational database queries, and package services into Docker containers.",
+                  "source": "internships.json / I003"
+                },
+                {
+                  "internship_id": "I004",
+                  "role": "Deep Learning & NLP Research Intern",
+                  "company": "NeuralText Research",
+                  "required_skills": [
+                    "Python",
+                    "PyTorch",
+                    "NLP",
+                    "Transformers",
+                    "Deep Learning"
+                  ],
+                  "description": "Fine-tune transformer models for semantic search and clinical entity categorization.",
+                  "source": "internships.json / I004"
+                }
+              ],
+              "source": "internships.json"
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [],
+          "internship_ids": [
+            "I001",
+            "I002",
+            "I003",
+            "I004"
+          ],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "search_internships"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "internships.json / I004",
+            "internships.json / I003",
+            "internships.json / I001",
+            "internships.json / I002"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "comparison": {
+        "facts_agreed": true,
+        "exact_text_match": true,
+        "tool_sequence_match": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "Q3",
+      "category": "skill_matching",
+      "question": "How suitable is student S001 for internship I002?",
+      "run_1": {
+        "answer": "Student S001 (Aarav Sharma) matches Internship I002 (Data Science & Analytics Intern at Quantum Analytics) at **75.0%** skill overlap.\n\n- Matched skills (3/4): Python, SQL, Pandas\n- Missing required skills: Data Visualization\n\nNote: This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success.\n\nSources:\nstudents.json / S001, internships.json / I002",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I002"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I002",
+              "internship_role": "Data Science & Analytics Intern",
+              "company": "Quantum Analytics",
+              "match_percentage": 75.0,
+              "matched_skills": [
+                "Python",
+                "SQL",
+                "Pandas"
+              ],
+              "missing_skills": [
+                "Data Visualization"
+              ],
+              "total_required_count": 4,
+              "matched_count": 3,
+              "explanation": "Student S001 possesses 3 of 4 required skills (Python, SQL, Pandas) for internship I002 at Quantum Analytics.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I002"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [
+            "I002"
+          ],
+          "match_percentages": [
+            75.0
+          ],
+          "matched_skills": [
+            "pandas",
+            "python",
+            "sql"
+          ],
+          "missing_skills": [
+            "data visualization"
+          ],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "calculate_skill_match"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001",
+            "internships.json / I002"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "run_2": {
+        "answer": "Student S001 (Aarav Sharma) matches Internship I002 (Data Science & Analytics Intern at Quantum Analytics) at **75.0%** skill overlap.\n\n- Matched skills (3/4): Python, SQL, Pandas\n- Missing required skills: Data Visualization\n\nNote: This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success.\n\nSources:\nstudents.json / S001, internships.json / I002",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I002"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I002",
+              "internship_role": "Data Science & Analytics Intern",
+              "company": "Quantum Analytics",
+              "match_percentage": 75.0,
+              "matched_skills": [
+                "Python",
+                "SQL",
+                "Pandas"
+              ],
+              "missing_skills": [
+                "Data Visualization"
+              ],
+              "total_required_count": 4,
+              "matched_count": 3,
+              "explanation": "Student S001 possesses 3 of 4 required skills (Python, SQL, Pandas) for internship I002 at Quantum Analytics.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I002"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [
+            "I002"
+          ],
+          "match_percentages": [
+            75.0
+          ],
+          "matched_skills": [
+            "pandas",
+            "python",
+            "sql"
+          ],
+          "missing_skills": [
+            "data visualization"
+          ],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "calculate_skill_match"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001",
+            "internships.json / I002"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "comparison": {
+        "facts_agreed": true,
+        "exact_text_match": true,
+        "tool_sequence_match": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "Q4",
+      "category": "missing_skills",
+      "question": "Which required skills are missing for student S001 when applying for internship I001?",
+      "run_1": {
+        "answer": "Student S001 (Aarav Sharma) matches Internship I001 (AI / Machine Learning Intern at Apex AI Labs) at **75.0%** skill overlap.\n\n- Matched skills (3/4): Python, Machine Learning, Scikit-Learn\n- Missing required skills: Docker\n\nNote: This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success.\n\nSources:\nstudents.json / S001, internships.json / I001",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I001"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I001",
+              "internship_role": "AI / Machine Learning Intern",
+              "company": "Apex AI Labs",
+              "match_percentage": 75.0,
+              "matched_skills": [
+                "Python",
+                "Machine Learning",
+                "Scikit-Learn"
+              ],
+              "missing_skills": [
+                "Docker"
+              ],
+              "total_required_count": 4,
+              "matched_count": 3,
+              "explanation": "Student S001 possesses 3 of 4 required skills (Python, Machine Learning, Scikit-Learn) for internship I001 at Apex AI Labs.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I001"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [
+            "I001"
+          ],
+          "match_percentages": [
+            75.0
+          ],
+          "matched_skills": [
+            "machine learning",
+            "python",
+            "scikit-learn"
+          ],
+          "missing_skills": [
+            "docker"
+          ],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "calculate_skill_match"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001",
+            "internships.json / I001"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "run_2": {
+        "answer": "Student S001 (Aarav Sharma) matches Internship I001 (AI / Machine Learning Intern at Apex AI Labs) at **75.0%** skill overlap.\n\n- Matched skills (3/4): Python, Machine Learning, Scikit-Learn\n- Missing required skills: Docker\n\nNote: This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success.\n\nSources:\nstudents.json / S001, internships.json / I001",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I001"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I001",
+              "internship_role": "AI / Machine Learning Intern",
+              "company": "Apex AI Labs",
+              "match_percentage": 75.0,
+              "matched_skills": [
+                "Python",
+                "Machine Learning",
+                "Scikit-Learn"
+              ],
+              "missing_skills": [
+                "Docker"
+              ],
+              "total_required_count": 4,
+              "matched_count": 3,
+              "explanation": "Student S001 possesses 3 of 4 required skills (Python, Machine Learning, Scikit-Learn) for internship I001 at Apex AI Labs.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I001"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [
+            "I001"
+          ],
+          "match_percentages": [
+            75.0
+          ],
+          "matched_skills": [
+            "machine learning",
+            "python",
+            "scikit-learn"
+          ],
+          "missing_skills": [
+            "docker"
+          ],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "calculate_skill_match"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001",
+            "internships.json / I001"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "comparison": {
+        "facts_agreed": true,
+        "exact_text_match": true,
+        "tool_sequence_match": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "Q5",
+      "category": "comparative_ranking",
+      "question": "Which internship has the highest skill-overlap score for student S001?",
+      "run_1": {
+        "answer": "For student S001 (Aarav Sharma), the internship with the highest skill-overlap score is **I001** (AI / Machine Learning Intern at Apex AI Labs) with a score of **75.0%**.\n\n- Matched skills: Python, Machine Learning, Scikit-Learn\n- Missing skills: Docker\n\nNote: This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success.\n\nSources:\nstudents.json / S001, internships.json / I001",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I001"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I001",
+              "internship_role": "AI / Machine Learning Intern",
+              "company": "Apex AI Labs",
+              "match_percentage": 75.0,
+              "matched_skills": [
+                "Python",
+                "Machine Learning",
+                "Scikit-Learn"
+              ],
+              "missing_skills": [
+                "Docker"
+              ],
+              "total_required_count": 4,
+              "matched_count": 3,
+              "explanation": "Student S001 possesses 3 of 4 required skills (Python, Machine Learning, Scikit-Learn) for internship I001 at Apex AI Labs.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I001"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I002"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I002",
+              "internship_role": "Data Science & Analytics Intern",
+              "company": "Quantum Analytics",
+              "match_percentage": 75.0,
+              "matched_skills": [
+                "Python",
+                "SQL",
+                "Pandas"
+              ],
+              "missing_skills": [
+                "Data Visualization"
+              ],
+              "total_required_count": 4,
+              "matched_count": 3,
+              "explanation": "Student S001 possesses 3 of 4 required skills (Python, SQL, Pandas) for internship I002 at Quantum Analytics.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I002"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I003"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I003",
+              "internship_role": "Backend Systems Intern",
+              "company": "DataBridge Technologies",
+              "match_percentage": 25.0,
+              "matched_skills": [
+                "Python"
+              ],
+              "missing_skills": [
+                "FastAPI",
+                "PostgreSQL",
+                "Docker"
+              ],
+              "total_required_count": 4,
+              "matched_count": 1,
+              "explanation": "Student S001 possesses 1 of 4 required skills (Python) for internship I003 at DataBridge Technologies.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I003"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I004"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I004",
+              "internship_role": "Deep Learning & NLP Research Intern",
+              "company": "NeuralText Research",
+              "match_percentage": 20.0,
+              "matched_skills": [
+                "Python"
+              ],
+              "missing_skills": [
+                "PyTorch",
+                "NLP",
+                "Transformers",
+                "Deep Learning"
+              ],
+              "total_required_count": 5,
+              "matched_count": 1,
+              "explanation": "Student S001 possesses 1 of 5 required skills (Python) for internship I004 at NeuralText Research.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I004"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I005"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I005",
+              "internship_role": "Cloud Platform & DevOps Intern",
+              "company": "CloudWave Systems",
+              "match_percentage": 0.0,
+              "matched_skills": [],
+              "missing_skills": [
+                "Linux",
+                "Docker",
+                "Kubernetes",
+                "AWS",
+                "CI/CD"
+              ],
+              "total_required_count": 5,
+              "matched_count": 0,
+              "explanation": "Student S001 possesses 0 of 5 required skills (none) for internship I005 at CloudWave Systems.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I005"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I006"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I006",
+              "internship_role": "Frontend Web Engineering Intern",
+              "company": "Nova Webworks",
+              "match_percentage": 0.0,
+              "matched_skills": [],
+              "missing_skills": [
+                "React",
+                "TypeScript",
+                "JavaScript",
+                "CSS"
+              ],
+              "total_required_count": 4,
+              "matched_count": 0,
+              "explanation": "Student S001 possesses 0 of 4 required skills (none) for internship I006 at Nova Webworks.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I006"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [
+            "I001",
+            "I002",
+            "I003",
+            "I004",
+            "I005",
+            "I006"
+          ],
+          "match_percentages": [
+            0.0,
+            20.0,
+            25.0,
+            75.0
+          ],
+          "matched_skills": [
+            "machine learning",
+            "pandas",
+            "python",
+            "scikit-learn",
+            "sql"
+          ],
+          "missing_skills": [
+            "aws",
+            "ci/cd",
+            "css",
+            "data visualization",
+            "deep learning",
+            "docker",
+            "fastapi",
+            "javascript",
+            "kubernetes",
+            "linux",
+            "nlp",
+            "postgresql",
+            "pytorch",
+            "react",
+            "transformers",
+            "typescript"
+          ],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "calculate_skill_match",
+            "calculate_skill_match",
+            "calculate_skill_match",
+            "calculate_skill_match",
+            "calculate_skill_match",
+            "calculate_skill_match"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001",
+            "internships.json / I001"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "run_2": {
+        "answer": "For student S001 (Aarav Sharma), the internship with the highest skill-overlap score is **I001** (AI / Machine Learning Intern at Apex AI Labs) with a score of **75.0%**.\n\n- Matched skills: Python, Machine Learning, Scikit-Learn\n- Missing skills: Docker\n\nNote: This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success.\n\nSources:\nstudents.json / S001, internships.json / I001",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I001"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I001",
+              "internship_role": "AI / Machine Learning Intern",
+              "company": "Apex AI Labs",
+              "match_percentage": 75.0,
+              "matched_skills": [
+                "Python",
+                "Machine Learning",
+                "Scikit-Learn"
+              ],
+              "missing_skills": [
+                "Docker"
+              ],
+              "total_required_count": 4,
+              "matched_count": 3,
+              "explanation": "Student S001 possesses 3 of 4 required skills (Python, Machine Learning, Scikit-Learn) for internship I001 at Apex AI Labs.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I001"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I002"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I002",
+              "internship_role": "Data Science & Analytics Intern",
+              "company": "Quantum Analytics",
+              "match_percentage": 75.0,
+              "matched_skills": [
+                "Python",
+                "SQL",
+                "Pandas"
+              ],
+              "missing_skills": [
+                "Data Visualization"
+              ],
+              "total_required_count": 4,
+              "matched_count": 3,
+              "explanation": "Student S001 possesses 3 of 4 required skills (Python, SQL, Pandas) for internship I002 at Quantum Analytics.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I002"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I003"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I003",
+              "internship_role": "Backend Systems Intern",
+              "company": "DataBridge Technologies",
+              "match_percentage": 25.0,
+              "matched_skills": [
+                "Python"
+              ],
+              "missing_skills": [
+                "FastAPI",
+                "PostgreSQL",
+                "Docker"
+              ],
+              "total_required_count": 4,
+              "matched_count": 1,
+              "explanation": "Student S001 possesses 1 of 4 required skills (Python) for internship I003 at DataBridge Technologies.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I003"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I004"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I004",
+              "internship_role": "Deep Learning & NLP Research Intern",
+              "company": "NeuralText Research",
+              "match_percentage": 20.0,
+              "matched_skills": [
+                "Python"
+              ],
+              "missing_skills": [
+                "PyTorch",
+                "NLP",
+                "Transformers",
+                "Deep Learning"
+              ],
+              "total_required_count": 5,
+              "matched_count": 1,
+              "explanation": "Student S001 possesses 1 of 5 required skills (Python) for internship I004 at NeuralText Research.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I004"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I005"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I005",
+              "internship_role": "Cloud Platform & DevOps Intern",
+              "company": "CloudWave Systems",
+              "match_percentage": 0.0,
+              "matched_skills": [],
+              "missing_skills": [
+                "Linux",
+                "Docker",
+                "Kubernetes",
+                "AWS",
+                "CI/CD"
+              ],
+              "total_required_count": 5,
+              "matched_count": 0,
+              "explanation": "Student S001 possesses 0 of 5 required skills (none) for internship I005 at CloudWave Systems.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I005"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          },
+          {
+            "iteration": 1,
+            "tool": "calculate_skill_match",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I006"
+            },
+            "result": {
+              "status": "calculated",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I006",
+              "internship_role": "Frontend Web Engineering Intern",
+              "company": "Nova Webworks",
+              "match_percentage": 0.0,
+              "matched_skills": [],
+              "missing_skills": [
+                "React",
+                "TypeScript",
+                "JavaScript",
+                "CSS"
+              ],
+              "total_required_count": 4,
+              "matched_count": 0,
+              "explanation": "Student S001 possesses 0 of 4 required skills (none) for internship I006 at Nova Webworks.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I006"
+              ],
+              "disclaimer": "This match percentage is a deterministic skill-overlap score based on required skills; it is not a statistical prediction of interview or hiring success."
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [
+            "I001",
+            "I002",
+            "I003",
+            "I004",
+            "I005",
+            "I006"
+          ],
+          "match_percentages": [
+            0.0,
+            20.0,
+            25.0,
+            75.0
+          ],
+          "matched_skills": [
+            "machine learning",
+            "pandas",
+            "python",
+            "scikit-learn",
+            "sql"
+          ],
+          "missing_skills": [
+            "aws",
+            "ci/cd",
+            "css",
+            "data visualization",
+            "deep learning",
+            "docker",
+            "fastapi",
+            "javascript",
+            "kubernetes",
+            "linux",
+            "nlp",
+            "postgresql",
+            "pytorch",
+            "react",
+            "transformers",
+            "typescript"
+          ],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "calculate_skill_match",
+            "calculate_skill_match",
+            "calculate_skill_match",
+            "calculate_skill_match",
+            "calculate_skill_match",
+            "calculate_skill_match"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001",
+            "internships.json / I001"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "comparison": {
+        "facts_agreed": true,
+        "exact_text_match": true,
+        "tool_sequence_match": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "Q6",
+      "category": "missing_attribute",
+      "question": "What is the GPA of student S001 if GPA is not stored?",
+      "run_1": {
+        "answer": "The GPA for student S001 (Aarav Sharma) is not stored in the database. Education on record: Bachelor of Technology in Computer Science from Delhi Technological University (2025).\n\nSources:\nstudents.json / S001",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "get_student_profile",
+            "arguments": {
+              "student_id": "S001"
+            },
+            "result": {
+              "status": "found",
+              "student_id": "S001",
+              "name": "Aarav Sharma",
+              "education": {
+                "degree": "Bachelor of Technology in Computer Science",
+                "institution": "Delhi Technological University",
+                "graduation_year": 2025
+              },
+              "skills": [
+                "Python",
+                "SQL",
+                "Machine Learning",
+                "Pandas",
+                "Scikit-Learn"
+              ],
+              "projects": [
+                {
+                  "title": "Predictive Customer Churn Model",
+                  "description": "Built an end-to-end churn prediction pipeline using Random Forest and Pandas.",
+                  "technologies": [
+                    "Python",
+                    "Pandas",
+                    "Scikit-Learn"
+                  ]
+                },
+                {
+                  "title": "SQL Sales Analytics Portal",
+                  "description": "Designed relational schema and analytical queries for sales data reporting.",
+                  "technologies": [
+                    "SQL",
+                    "PostgreSQL"
+                  ]
+                }
+              ],
+              "source": "students.json / S001"
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": true,
+            "empty_search": false
+          },
+          "tools_called": [
+            "get_student_profile"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "run_2": {
+        "answer": "The GPA for student S001 (Aarav Sharma) is not stored in the database. Education on record: Bachelor of Technology in Computer Science from Delhi Technological University (2025).\n\nSources:\nstudents.json / S001",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "get_student_profile",
+            "arguments": {
+              "student_id": "S001"
+            },
+            "result": {
+              "status": "found",
+              "student_id": "S001",
+              "name": "Aarav Sharma",
+              "education": {
+                "degree": "Bachelor of Technology in Computer Science",
+                "institution": "Delhi Technological University",
+                "graduation_year": 2025
+              },
+              "skills": [
+                "Python",
+                "SQL",
+                "Machine Learning",
+                "Pandas",
+                "Scikit-Learn"
+              ],
+              "projects": [
+                {
+                  "title": "Predictive Customer Churn Model",
+                  "description": "Built an end-to-end churn prediction pipeline using Random Forest and Pandas.",
+                  "technologies": [
+                    "Python",
+                    "Pandas",
+                    "Scikit-Learn"
+                  ]
+                },
+                {
+                  "title": "SQL Sales Analytics Portal",
+                  "description": "Designed relational schema and analytical queries for sales data reporting.",
+                  "technologies": [
+                    "SQL",
+                    "PostgreSQL"
+                  ]
+                }
+              ],
+              "source": "students.json / S001"
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": true,
+            "empty_search": false
+          },
+          "tools_called": [
+            "get_student_profile"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "comparison": {
+        "facts_agreed": true,
+        "exact_text_match": true,
+        "tool_sequence_match": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "Q7",
+      "category": "unknown_entity",
+      "question": "What do you know about student S999?",
+      "run_1": {
+        "answer": "Student S999 was not found in the local database.\n\nSources:\nstudents.json",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "get_student_profile",
+            "arguments": {
+              "student_id": "S999"
+            },
+            "result": {
+              "status": "not_found",
+              "error": "Student with ID 'S999' was not found in the local database.",
+              "student_id": "S999",
+              "source": "students.json"
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S999"
+          ],
+          "internship_ids": [],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [],
+          "missing_data_status": {
+            "unknown_student": true,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "get_student_profile"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "run_2": {
+        "answer": "Student S999 was not found in the local database.\n\nSources:\nstudents.json",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "get_student_profile",
+            "arguments": {
+              "student_id": "S999"
+            },
+            "result": {
+              "status": "not_found",
+              "error": "Student with ID 'S999' was not found in the local database.",
+              "student_id": "S999",
+              "source": "students.json"
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S999"
+          ],
+          "internship_ids": [],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [],
+          "missing_data_status": {
+            "unknown_student": true,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "get_student_profile"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "comparison": {
+        "facts_agreed": true,
+        "exact_text_match": true,
+        "tool_sequence_match": true,
+        "mismatches": []
+      }
+    },
+    {
+      "id": "Q8",
+      "category": "skill_gap_roadmap",
+      "question": "Can you recommend learning topics for the missing skills of student S001 for internship I001?",
+      "run_1": {
+        "answer": "Skill Gap Analysis for Student S001 targeting I001 (AI / Machine Learning Intern at Apex AI Labs):\n- Existing relevant skills: Python, Machine Learning, Scikit-Learn\n- Missing required skills: Docker\n\nCurated Learning Recommendations:\n  \u2022 Docker:\n    - Container Architecture & Image Layers\n    - Writing Production-Ready Dockerfiles\n    - Multi-Container Applications with Docker Compose\n    - Container Networking and Persistent Storage Volumes\n\nLearning topics are derived strictly from local curated mappings. No fictional courses or external certifications have been fabricated.\n\nSources:\nstudents.json / S001, internships.json / I001, learning_topics.json",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "get_skill_gap",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I001"
+            },
+            "result": {
+              "status": "success",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I001",
+              "internship_role": "AI / Machine Learning Intern",
+              "company": "Apex AI Labs",
+              "existing_relevant_skills": [
+                "Python",
+                "Machine Learning",
+                "Scikit-Learn"
+              ],
+              "missing_required_skills": [
+                "Docker"
+              ],
+              "suggested_learning_topics": {
+                "Docker": [
+                  "Container Architecture & Image Layers",
+                  "Writing Production-Ready Dockerfiles",
+                  "Multi-Container Applications with Docker Compose",
+                  "Container Networking and Persistent Storage Volumes"
+                ]
+              },
+              "unmapped_missing_skills": [],
+              "notes": "Learning topics are derived strictly from local curated mappings. No fictional courses or external certifications have been fabricated.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I001",
+                "learning_topics.json"
+              ]
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [
+            "I001"
+          ],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [
+            "docker"
+          ],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "get_skill_gap"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001",
+            "internships.json / I001",
+            "learning_topics.json"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "run_2": {
+        "answer": "Skill Gap Analysis for Student S001 targeting I001 (AI / Machine Learning Intern at Apex AI Labs):\n- Existing relevant skills: Python, Machine Learning, Scikit-Learn\n- Missing required skills: Docker\n\nCurated Learning Recommendations:\n  \u2022 Docker:\n    - Container Architecture & Image Layers\n    - Writing Production-Ready Dockerfiles\n    - Multi-Container Applications with Docker Compose\n    - Container Networking and Persistent Storage Volumes\n\nLearning topics are derived strictly from local curated mappings. No fictional courses or external certifications have been fabricated.\n\nSources:\nstudents.json / S001, internships.json / I001, learning_topics.json",
+        "trace": [
+          {
+            "iteration": 1,
+            "tool": "get_skill_gap",
+            "arguments": {
+              "student_id": "S001",
+              "internship_id": "I001"
+            },
+            "result": {
+              "status": "success",
+              "student_id": "S001",
+              "student_name": "Aarav Sharma",
+              "internship_id": "I001",
+              "internship_role": "AI / Machine Learning Intern",
+              "company": "Apex AI Labs",
+              "existing_relevant_skills": [
+                "Python",
+                "Machine Learning",
+                "Scikit-Learn"
+              ],
+              "missing_required_skills": [
+                "Docker"
+              ],
+              "suggested_learning_topics": {
+                "Docker": [
+                  "Container Architecture & Image Layers",
+                  "Writing Production-Ready Dockerfiles",
+                  "Multi-Container Applications with Docker Compose",
+                  "Container Networking and Persistent Storage Volumes"
+                ]
+              },
+              "unmapped_missing_skills": [],
+              "notes": "Learning topics are derived strictly from local curated mappings. No fictional courses or external certifications have been fabricated.",
+              "source_record_ids": [
+                "students.json / S001",
+                "internships.json / I001",
+                "learning_topics.json"
+              ]
+            }
+          }
+        ],
+        "execution_time_seconds": 0.0,
+        "extracted_facts": {
+          "student_ids": [
+            "S001"
+          ],
+          "internship_ids": [
+            "I001"
+          ],
+          "match_percentages": [],
+          "matched_skills": [],
+          "missing_skills": [
+            "docker"
+          ],
+          "missing_data_status": {
+            "unknown_student": false,
+            "unrecorded_gpa": false,
+            "empty_search": false
+          },
+          "tools_called": [
+            "get_skill_gap"
+          ]
+        },
+        "grounding_audit": {
+          "is_grounded": true,
+          "warnings": [],
+          "source_citations_found": [
+            "students.json / S001",
+            "internships.json / I001",
+            "learning_topics.json"
+          ],
+          "missing_data_respected": true,
+          "score_integrity": true
+        }
+      },
+      "comparison": {
+        "facts_agreed": true,
+        "exact_text_match": true,
+        "tool_sequence_match": true,
+        "mismatches": []
+      }
+    }
+  ]
+}

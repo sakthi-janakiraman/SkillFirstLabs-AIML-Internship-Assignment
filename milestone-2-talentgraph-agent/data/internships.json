@@ -1,0 +1,44 @@
+[
+  {
+    "internship_id": "I001",
+    "role": "AI / Machine Learning Intern",
+    "company": "Apex AI Labs",
+    "required_skills": ["Python", "Machine Learning", "Scikit-Learn", "Docker"],
+    "description": "Develop, validate, and containerize supervised ML models for predictive talent analytics."
+  },
+  {
+    "internship_id": "I002",
+    "role": "Data Science & Analytics Intern",
+    "company": "Quantum Analytics",
+    "required_skills": ["Python", "SQL", "Pandas", "Data Visualization"],
+    "description": "Analyze tabular time-series data, write complex analytical SQL queries, and construct automated dashboards."
+  },
+  {
+    "internship_id": "I003",
+    "role": "Backend Systems Intern",
+    "company": "DataBridge Technologies",
+    "required_skills": ["Python", "FastAPI", "PostgreSQL", "Docker"],
+    "description": "Design asynchronous REST APIs, optimize relational database queries, and package services into Docker containers."
+  },
+  {
+    "internship_id": "I004",
+    "role": "Deep Learning & NLP Research Intern",
+    "company": "NeuralText Research",
+    "required_skills": ["Python", "PyTorch", "NLP", "Transformers", "Deep Learning"],
+    "description": "Fine-tune transformer models for semantic search and clinical entity categorization."
+  },
+  {
+    "internship_id": "I005",
+    "role": "Cloud Platform & DevOps Intern",
+    "company": "CloudWave Systems",
+    "required_skills": ["Linux", "Docker", "Kubernetes", "AWS", "CI/CD"],
+    "description": "Manage Kubernetes clusters, orchestrate GitHub Actions CI/CD workflows, and automate cloud infrastructure."
+  },
+  {
+    "internship_id": "I006",
+    "role": "Frontend Web Engineering Intern",
+    "company": "Nova Webworks",
+    "required_skills": ["React", "TypeScript", "JavaScript", "CSS"],
+    "description": "Build high-performance, modular UI components and responsive data visualization web interfaces."
+  }
+]

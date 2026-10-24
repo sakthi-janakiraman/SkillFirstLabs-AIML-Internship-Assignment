@@ -1,0 +1,139 @@
+[
+  {
+    "student_id": "S001",
+    "name": "Aarav Sharma",
+    "education": {
+      "degree": "Bachelor of Technology in Computer Science",
+      "institution": "Delhi Technological University",
+      "graduation_year": 2025
+    },
+    "skills": ["Python", "SQL", "Machine Learning", "Pandas", "Scikit-Learn"],
+    "projects": [
+      {
+        "title": "Predictive Customer Churn Model",
+        "description": "Built an end-to-end churn prediction pipeline using Random Forest and Pandas.",
+        "technologies": ["Python", "Pandas", "Scikit-Learn"]
+      },
+      {
+        "title": "SQL Sales Analytics Portal",
+        "description": "Designed relational schema and analytical queries for sales data reporting.",
+        "technologies": ["SQL", "PostgreSQL"]
+      }
+    ]
+  },
+  {
+    "student_id": "S002",
+    "name": "Priya Patel",
+    "education": {
+      "degree": "Bachelor of Engineering in Information Technology",
+      "institution": "Anna University",
+      "graduation_year": 2024,
+      "gpa": 3.8
+    },
+    "skills": ["Python", "FastAPI", "Docker", "PostgreSQL", "Redis"],
+    "projects": [
+      {
+        "title": "Distributed Task Queue Engine",
+        "description": "Developed asynchronous job processor using Celery, Redis, and FastAPI.",
+        "technologies": ["Python", "FastAPI", "Redis"]
+      },
+      {
+        "title": "Microservice Authentication Service",
+        "description": "Containerized JWT authentication service deployed with Docker.",
+        "technologies": ["Docker", "FastAPI", "PostgreSQL"]
+      }
+    ]
+  },
+  {
+    "student_id": "S003",
+    "name": "Rohan Verma",
+    "education": {
+      "degree": "Master of Science in Data Science",
+      "institution": "Indian Institute of Science",
+      "graduation_year": 2025,
+      "gpa": 3.9
+    },
+    "skills": ["Python", "PyTorch", "Deep Learning", "NLP", "Transformers", "SQL"],
+    "projects": [
+      {
+        "title": "Clinical Named Entity Recognition",
+        "description": "Fine-tuned BERT models for medical entity extraction from clinical text.",
+        "technologies": ["PyTorch", "Transformers", "Python"]
+      },
+      {
+        "title": "Semantic Document Search Engine",
+        "description": "Built neural embedding retriever with FAISS and sentence transformers.",
+        "technologies": ["Python", "NLP", "PyTorch"]
+      }
+    ]
+  },
+  {
+    "student_id": "S004",
+    "name": "Ananya Iyer",
+    "education": {
+      "degree": "Bachelor of Science in Mathematics & Computing",
+      "institution": "BITS Pilani",
+      "graduation_year": 2026,
+      "gpa": 3.7
+    },
+    "skills": ["JavaScript", "TypeScript", "React", "Next.js", "CSS", "TailwindCSS"],
+    "projects": [
+      {
+        "title": "Interactive Analytics Dashboard",
+        "description": "Built responsive dashboard with real-time SVG charting and dark mode.",
+        "technologies": ["React", "TypeScript", "CSS"]
+      },
+      {
+        "title": "Realtime Collaborative Canvas",
+        "description": "Multi-user drawing canvas utilizing WebSockets and Next.js.",
+        "technologies": ["Next.js", "JavaScript"]
+      }
+    ]
+  },
+  {
+    "student_id": "S005",
+    "name": "Devansh Mehta",
+    "education": {
+      "degree": "Bachelor of Technology in Electronics",
+      "institution": "NIT Trichy",
+      "graduation_year": 2025,
+      "gpa": 3.5
+    },
+    "skills": ["Python", "Docker", "Kubernetes", "Linux", "CI/CD", "AWS", "Bash"],
+    "projects": [
+      {
+        "title": "GitOps Deployment Pipeline",
+        "description": "Automated Kubernetes cluster application deployments using ArgoCD.",
+        "technologies": ["Kubernetes", "Docker", "CI/CD"]
+      },
+      {
+        "title": "Cloud Infrastructure as Code",
+        "description": "Provisioned resilient VPC and compute instances with Terraform on AWS.",
+        "technologies": ["AWS", "Linux"]
+      }
+    ]
+  },
+  {
+    "student_id": "S006",
+    "name": "Sneha Kulkarni",
+    "education": {
+      "degree": "Bachelor of Technology in Artificial Intelligence",
+      "institution": "IIT Hyderabad",
+      "graduation_year": 2025,
+      "gpa": 3.85
+    },
+    "skills": ["Python", "Computer Vision", "OpenCV", "PyTorch", "TensorFlow", "C++"],
+    "projects": [
+      {
+        "title": "Real-Time Object Detection Edge Pipeline",
+        "description": "Trained YOLO models optimized with TensorRT on edge hardware.",
+        "technologies": ["Python", "PyTorch", "OpenCV"]
+      },
+      {
+        "title": "Autonomous Lane Tracking System",
+        "description": "Robust lane detection using classical computer vision and deep learning.",
+        "technologies": ["C++", "OpenCV"]
+      }
+    ]
+  }
+]

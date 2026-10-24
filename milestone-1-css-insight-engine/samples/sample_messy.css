@@ -1,0 +1,86 @@
+/* ==========================================================================
+   ACADEMIC TALENT MANAGEMENT - LEGACY / UNMAINTAINED STYLESHEET
+   Contains intentional design inconsistencies, repeated declarations,
+   hardcoded color repetitions, and specificity debt via !important.
+   ========================================================================== */
+
+/* Top level un-tokenized header */
+.header-bar {
+  background-color: #1e3a8a;
+  color: #ffffff;
+  padding: 13px 24px;
+  border-bottom: 2px solid #ef4444;
+}
+
+/* Nav links with specificity override */
+.header-bar .nav-item {
+  color: #ffffff;
+  font-size: 14px;
+  margin-right: 13px;
+  text-decoration: none !important;
+}
+
+/* Sidebar with duplicate declaration */
+.dashboard-sidebar {
+  width: 260px;
+  background-color: #1e3a8a;
+  display: block;
+  padding: 13px;
+  /* Redundant exact duplicate declaration below */
+  display: block;
+  border-right: 1px solid #d1d5db;
+}
+
+/* Candidate Card with overwritten property */
+.candidate-card-legacy {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.candidate-card-legacy .title {
+  /* Overwritten declaration: #1e3a8a immediately overridden by #374151 */
+  color: #1e3a8a;
+  font-size: 18px;
+  font-weight: bold;
+  color: #374151;
+}
+
+/* Hardcoded repeated badge colors and arbitrary spacing */
+.badge-urgent {
+  background-color: #ef4444 !important;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: 13px;
+}
+
+.badge-featured {
+  background-color: #1e3a8a;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Action button with excessive !important override */
+.btn-submit-override {
+  background-color: #1e3a8a !important;
+  color: #ffffff !important;
+  padding: 10px 20px !important;
+  border: none !important;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Alert banner using undefined custom property */
+.system-notification {
+  background-color: #fef2f2;
+  border-left: 4px solid #ef4444;
+  /* Undefined variable reference below: --accent-glow was never declared */
+  box-shadow: 0 0 10px var(--accent-glow);
+  padding: 16px;
+  margin-top: 20px;
+}

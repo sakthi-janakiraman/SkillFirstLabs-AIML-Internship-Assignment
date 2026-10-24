@@ -1,0 +1,58 @@
+[
+  {
+    "id": "Q1",
+    "category": "student_profile",
+    "question": "What skills does student S001 have?",
+    "target_student_id": "S001",
+    "target_internship_id": null
+  },
+  {
+    "id": "Q2",
+    "category": "internship_search",
+    "question": "Find internships requiring Python.",
+    "target_student_id": null,
+    "target_internship_id": null
+  },
+  {
+    "id": "Q3",
+    "category": "skill_matching",
+    "question": "How suitable is student S001 for internship I002?",
+    "target_student_id": "S001",
+    "target_internship_id": "I002"
+  },
+  {
+    "id": "Q4",
+    "category": "missing_skills",
+    "question": "Which required skills are missing for student S001 when applying for internship I001?",
+    "target_student_id": "S001",
+    "target_internship_id": "I001"
+  },
+  {
+    "id": "Q5",
+    "category": "comparative_ranking",
+    "question": "Which internship has the highest skill-overlap score for student S001?",
+    "target_student_id": "S001",
+    "target_internship_id": null
+  },
+  {
+    "id": "Q6",
+    "category": "missing_attribute",
+    "question": "What is the GPA of student S001 if GPA is not stored?",
+    "target_student_id": "S001",
+    "target_internship_id": null
+  },
+  {
+    "id": "Q7",
+    "category": "unknown_entity",
+    "question": "What do you know about student S999?",
+    "target_student_id": "S999",
+    "target_internship_id": null
+  },
+  {
+    "id": "Q8",
+    "category": "skill_gap_roadmap",
+    "question": "Can you recommend learning topics for the missing skills of student S001 for internship I001?",
+    "target_student_id": "S001",
+    "target_internship_id": "I001"
+  }
+]

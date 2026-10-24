@@ -1,0 +1,4 @@
+Tool-grounded answers restrict the model's factual claims to retrieved database records and explicit source identifiers, substantially reducing unsupported assertions compared to unbounded parametric generation.
+When records or specific attributes are absent, structured tools return explicit not-found or unavailable statuses, allowing the agent to transparently report data gaps rather than fabricating plausible filler.
+Mathematical overlap scores and skill comparisons are executed entirely within deterministic Python functions rather than language model arithmetic, eliminating calculation errors and scoring drift.
+Consistency is evaluated by running identical queries at temperature zero and comparing normalized structured facts (entity IDs, percentages, matched skills, and missing-data flags) across repeated executions rather than relying strictly on surface text equality.
